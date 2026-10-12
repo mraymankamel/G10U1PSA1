@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- Theme Name: Neon Emerald (Titanium V.Max - Print Master V.MAX) - FINAL FULLY LOADED -->
+    <!-- Theme Name: Neon Emerald (Titanium V.Max - Print Master V.MAX) - AVATAR FIX EDITION -->
     <title>🌟 التحدي الأكبر 🚀</title>
 
     <meta property="og:title" content="🌟 التحدي الأكبر 🚀">
@@ -89,7 +89,8 @@
         .ta-btn { background: #FFFFFF; color: var(--text-muted); border: 2px solid #E2E8F0; padding: 16px; font-size: 16px; border-radius: 14px; font-weight: 800; font-family: 'Outfit', 'Cairo'; cursor: pointer; transition: 0.3s;}
         .ta-btn.active { background: var(--accent-glow); color: var(--accent); border-color: var(--accent); box-shadow: 0 5px 15px var(--accent-glow); transform: scale(1.02); }
 
-        .avatar-grid { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 35px; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 5px;}
+        /* 🔥 تم الإصلاح: زيادة الـ Padding لاحتواء تمدد الأفاتار للأعلى وظله للأسفل 🔥 */
+        .avatar-grid { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 15px; flex-wrap: nowrap; overflow-x: auto; padding: 15px 5px 25px 5px;}
         .avatar-option { font-size: 34px; padding: 14px 20px; background: #FFFFFF; border-radius: 16px; cursor: pointer; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.02); transition: 0.3s; flex-shrink: 0;}
         .avatar-option.selected { background: #F8FAFC; border-color: var(--accent); box-shadow: 0 10px 25px var(--accent-glow); transform: scale(1.1) translateY(-5px);}
 
@@ -109,8 +110,8 @@
         .hud-avatar-runner { position: absolute; right: -22px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; background: #FFFFFF; border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 5px 15px var(--accent-glow); flex-shrink: 0; z-index: 5; transition: 0.6s ease;}
 
         .station-card { background: #FFFFFF; padding: 40px 30px; border-radius: 20px; margin-bottom: 35px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 15px 35px rgba(0,0,0,0.03); }
-        .question-text { display: flex; align-items: center; gap: 20px; margin-bottom: 40px; direction: ltr; }
-        .question-text-wrapper { flex: 1; font-family: 'Outfit'; font-size: var(--q-font-size); font-weight: 800; line-height: 1.7; transition: 0.3s;}
+        .question-text { display: flex; align-items: center; gap: 20px; margin-bottom: 40px; direction: ltr; width: 100%; }
+        .question-text-wrapper { flex: 1; font-family: 'Outfit'; font-size: var(--q-font-size); font-weight: 800; line-height: 1.7; transition: 0.3s; width: 100%; }
         
         .options-list { display: flex; flex-direction: column; gap: 18px; direction: ltr; }
         .option-item { background: #F8FAFC; border: 1px solid #E2E8F0; border-left: 5px solid #94A3B8; border-radius: 14px; padding: 20px 24px; cursor: pointer; display: flex; align-items: center; gap: 20px; transition: 0.2s; }
@@ -206,7 +207,7 @@
 
             .print-q-container { padding: 0 15mm; }
             .print-q-item { page-break-inside: avoid; margin-bottom: 25px; font-family: 'Outfit', 'Cairo'; }
-            .print-q-text { font-size: 18px; font-weight: 800; color: #000; margin-bottom: 12px; direction: ltr; text-align: left; display: inline-block; unicode-bidi: isolate; }
+            .print-q-text { font-size: 18px; font-weight: 800; color: #000; margin-bottom: 12px; direction: ltr; text-align: left; display: block; width: 100%; }
             .print-options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; direction: ltr; }
             .print-opt-item { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; color: #000;}
             .print-opt-letter { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #000; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 14px;}
@@ -259,7 +260,7 @@
             
             .cheer-bubble { padding: 14px 18px; }
             
-            .avatar-grid { gap: 10px; }
+            .avatar-grid { gap: 10px; padding: 15px 5px 25px 5px; }
             .avatar-option { font-size: 26px; padding: 10px 14px; }
             
             .action-btns { flex-direction: column; gap: 14px; margin-top: 35px;}
@@ -408,9 +409,9 @@
                 <div class="avatar-option" onclick="selectAvatar(this, '🏆')">🏆</div>
             </div>
             <div class="input-group">
-                <input type="text" id="studentName" placeholder="أدخل اسمك الثلاثي لتبدأ..." autocomplete="off">
+                <input type="text" id="studentName" placeholder="أدخل اسمك الثلاثي لتبدأ..." autocomplete="off" onkeypress="if(event.key === 'Enter') startQuiz()">
             </div>
-            <button type="button" class="btn btn-solid" id="start-btn-action">START ASSESSMENT ➔</button>
+            <button type="button" class="btn btn-solid" id="start-btn-action" onclick="startQuiz()" style="width:100%;">START ASSESSMENT ➔</button>
         </div>
 
         <div id="quiz-screen">
@@ -425,7 +426,7 @@
             </div>
             <div class="station-card" id="q-box">
                 <div class="question-text">
-                    <div class="question-text-wrapper"><span id="question-text-content" style="display: inline-block; unicode-bidi: isolate; direction: ltr;">--</span></div>
+                    <div class="question-text-wrapper"><span id="question-text-content" style="display: block; direction: ltr; text-align: left; width: 100%;">--</span></div>
                     <div class="tts-btn-container"><button type="button" class="icon-btn" style="border-color:var(--accent); color:var(--accent); background: #FFF;" onclick="speakQuestion()">🔊</button></div>
                 </div>
                 <div class="options-list" id="options-list" style="direction: ltr;"></div>
@@ -711,6 +712,10 @@ function shuffleArray(array) {
 }
 
 function initQuizData() {
+    if (!rawData || rawData.length === 0) {
+        console.error("الأسئلة مفقودة من المصفوفة!");
+        return;
+    }
     let tempArray = JSON.parse(JSON.stringify(rawData));
     shuffleArray(tempArray); 
     quizData = tempArray.map((item, index) => {
@@ -751,62 +756,54 @@ function toggleTimerView() {
     if(timerText) timerText.classList.toggle("hidden-timer"); 
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-    const startBtn = document.getElementById('start-btn-action');
-    if(startBtn) {
-        startBtn.addEventListener('click', startQuiz);
-    }
-    const nameInput = document.getElementById('studentName');
-    if(nameInput) {
-        nameInput.addEventListener('keypress', (e) => {
-            if(e.key === 'Enter') startQuiz();
-        });
-    }
-});
-
 function startQuiz() {
-    const nameInput = document.getElementById("studentName");
-    const input = nameInput ? nameInput.value.trim() : "";
-    if (!input) { 
-        alert("أدخل اسمك الثلاثي لتبدأ التحدي!"); 
-        if(nameInput) nameInput.focus();
-        return; 
+    try {
+        const nameInput = document.getElementById("studentName");
+        const input = nameInput ? nameInput.value.trim() : "";
+        if (!input) { 
+            alert("أدخل اسمك الثلاثي لتبدأ التحدي!"); 
+            if(nameInput) nameInput.focus();
+            return; 
+        }
+        studentName = input; 
+        
+        initQuizData(); 
+        
+        const startBody = document.getElementById("start-body");
+        const quizScreen = document.getElementById("quiz-screen");
+        const timerContainer = document.getElementById("timer-container");
+        const eyeContainer = document.getElementById("eye-care-container");
+
+        if(startBody) startBody.style.display = "none";
+        if(quizScreen) quizScreen.style.display = "block";
+        if(timerContainer) timerContainer.style.display = "flex";
+        if(eyeContainer) eyeContainer.style.display = "flex";
+        
+        const hudAvatar = document.getElementById("hud-avatar");
+        const hudName = document.getElementById("hud-name");
+        const hudMovingAvatar = document.getElementById("hud-moving-avatar");
+        const printDocStudent = document.getElementById("print-doc-student");
+        const resAvatar = document.getElementById("res-avatar");
+
+        if(hudAvatar) hudAvatar.innerText = selectedAvatar;
+        if(hudName) hudName.innerText = studentName;
+        if(hudMovingAvatar) hudMovingAvatar.innerText = selectedAvatar;
+        if(printDocStudent) printDocStudent.innerText = studentName;
+        if(resAvatar) resAvatar.innerText = selectedAvatar;
+
+        totalSeconds = quizData.length * 240; 
+        if (!isTimeAttack) {
+            let m = Math.floor(totalSeconds / 60), s = totalSeconds % 60;
+            const timerText = document.getElementById("timer-text");
+            if(timerText) timerText.innerText = `${m < 100 ? (m < 10 ? '0'+m : m) : m}:${s < 10 ? '0'+s : s}`;
+        }
+
+        startTimer(); 
+        loadQuestion();
+    } catch (error) {
+        console.error("Start Error: ", error);
+        alert("حدث خطأ، يرجى تحديث الصفحة والمحاولة مرة أخرى.");
     }
-    studentName = input; 
-    
-    initQuizData(); 
-    
-    const startBody = document.getElementById("start-body");
-    const quizScreen = document.getElementById("quiz-screen");
-    const timerContainer = document.getElementById("timer-container");
-    const eyeContainer = document.getElementById("eye-care-container");
-
-    if(startBody) startBody.style.display = "none";
-    if(quizScreen) quizScreen.style.display = "block";
-    if(timerContainer) timerContainer.style.display = "flex";
-    if(eyeContainer) eyeContainer.style.display = "flex";
-    
-    const hudAvatar = document.getElementById("hud-avatar");
-    const hudName = document.getElementById("hud-name");
-    const hudMovingAvatar = document.getElementById("hud-moving-avatar");
-    const printDocStudent = document.getElementById("print-doc-student");
-    const resAvatar = document.getElementById("res-avatar");
-
-    if(hudAvatar) hudAvatar.innerText = selectedAvatar;
-    if(hudName) hudName.innerText = studentName;
-    if(hudMovingAvatar) hudMovingAvatar.innerText = selectedAvatar;
-    if(printDocStudent) printDocStudent.innerText = studentName;
-    if(resAvatar) resAvatar.innerText = selectedAvatar;
-
-    totalSeconds = quizData.length * 240; 
-    if (!isTimeAttack) {
-        let m = Math.floor(totalSeconds / 60), s = totalSeconds % 60;
-        const timerText = document.getElementById("timer-text");
-        if(timerText) timerText.innerText = `${m < 100 ? (m < 10 ? '0'+m : m) : m}:${s < 10 ? '0'+s : s}`;
-    }
-
-    startTimer(); 
-    loadQuestion();
 }
 
 function loadQuestion() {
