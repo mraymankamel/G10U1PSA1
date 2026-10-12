@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- Theme Name: Neon Emerald (Titanium V.Max - Print Master V.MAX) - AVATAR FIX EDITION -->
+    <!-- Theme Name: Neon Emerald (Titanium V.Max) - STRICT LTR ALIGNMENT FIXED -->
     <title>🌟 التحدي الأكبر 🚀</title>
 
     <meta property="og:title" content="🌟 التحدي الأكبر 🚀">
@@ -89,7 +89,6 @@
         .ta-btn { background: #FFFFFF; color: var(--text-muted); border: 2px solid #E2E8F0; padding: 16px; font-size: 16px; border-radius: 14px; font-weight: 800; font-family: 'Outfit', 'Cairo'; cursor: pointer; transition: 0.3s;}
         .ta-btn.active { background: var(--accent-glow); color: var(--accent); border-color: var(--accent); box-shadow: 0 5px 15px var(--accent-glow); transform: scale(1.02); }
 
-        /* 🔥 تم الإصلاح: زيادة الـ Padding لاحتواء تمدد الأفاتار للأعلى وظله للأسفل 🔥 */
         .avatar-grid { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 15px; flex-wrap: nowrap; overflow-x: auto; padding: 15px 5px 25px 5px;}
         .avatar-option { font-size: 34px; padding: 14px 20px; background: #FFFFFF; border-radius: 16px; cursor: pointer; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.02); transition: 0.3s; flex-shrink: 0;}
         .avatar-option.selected { background: #F8FAFC; border-color: var(--accent); box-shadow: 0 10px 25px var(--accent-glow); transform: scale(1.1) translateY(-5px);}
@@ -185,30 +184,33 @@
             tfoot.print-tfoot { display: table-footer-group; }
             tbody.print-tbody { display: table-row-group; }
             
-            .header-content { display: flex; align-items: center; gap: 15px; padding: 15mm 15mm 5mm; border-bottom: 2px solid #000; margin-bottom: 5mm; justify-content: flex-start; text-align: left; }
+            /* 🔥 الإصلاح: محاذاة الهيدر لليسار بصرامة LTR 🔥 */
+            .header-content { display: flex; align-items: center; gap: 15px; padding: 15mm 15mm 5mm; border-bottom: 2px solid #000; margin-bottom: 5mm; justify-content: flex-start; text-align: left; direction: ltr; }
             .header-content img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid #000; }
             .header-content div strong { font-family: 'Outfit'; font-size: 26px; font-weight: 900; display: block; color: #000; line-height: 1.2; text-align: left; }
             .header-content div span { font-family: 'Outfit'; font-size: 14px; color: #333; text-transform: uppercase; letter-spacing: 1px; text-align: left; display: block;}
 
-            .footer-content { display: flex; justify-content: space-between; align-items: center; padding: 5mm 15mm 15mm; border-top: 2px solid #000; font-family: 'Outfit'; font-weight: bold; font-size: 14px; color: #000; }
+            .footer-content { display: flex; justify-content: space-between; align-items: center; padding: 5mm 15mm 15mm; border-top: 2px solid #000; font-family: 'Outfit'; font-weight: bold; font-size: 14px; color: #000; direction: ltr;}
             .page-number:after { counter-increment: page; content: "Page " counter(page); }
 
             .print-watermark { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.08; z-index: 9999; pointer-events: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; text-align: center; }
             .print-watermark img { width: 350px; height: 350px; border-radius: 50%; filter: grayscale(100%); display: block; margin: 0 auto;}
             .print-watermark h1 { display: none !important; }
 
-            .exam-title-box { text-align: center; margin-bottom: 10mm; padding: 0 15mm;}
-            .exam-title-box h2 { font-family: 'Outfit'; font-size: 28px; font-weight: 900; color: #000; text-transform: uppercase; margin-bottom: 10px; }
-            .student-info-row { display: flex; align-items: center; justify-content: center; gap: 20px; font-family: 'Outfit', 'Cairo'; font-size: 16px; font-weight: 700; width: 100%; }
-            .info-field { display: flex; align-items: flex-end; flex: 1; }
-            .info-label { margin-right: 10px; white-space: nowrap; }
-            .info-line { border-bottom: 2px dotted #000; flex: 1; min-height: 20px; padding-bottom: 2px; text-align: center;}
-            #print-doc-student { font-size: 18px; color: #000; }
+            /* 🔥 الإصلاح: محاذاة عنوان الامتحان وسطر الطالب لليسار LTR 🔥 */
+            .exam-title-box { text-align: left; direction: ltr; margin-bottom: 10mm; padding: 0 15mm;}
+            .exam-title-box h2 { font-family: 'Outfit'; font-size: 28px; font-weight: 900; color: #000; text-transform: uppercase; margin-bottom: 15px; text-align: left;}
+            .student-info-row { display: flex; align-items: flex-end; justify-content: flex-start; gap: 30px; font-family: 'Outfit', 'Cairo'; font-size: 16px; font-weight: 700; width: 100%; direction: ltr; text-align: left; }
+            .info-field { display: flex; align-items: flex-end; }
+            .name-field { flex: 2.5; }
+            .score-field { flex: 1; }
+            .info-label { margin-right: 10px; white-space: nowrap; padding-bottom: 2px; }
+            .info-line { border-bottom: 2px dotted #000; flex: 1; min-height: 20px; padding-bottom: 2px; text-align: center; color: #000; font-size: 18px;}
 
             .print-q-container { padding: 0 15mm; }
             .print-q-item { page-break-inside: avoid; margin-bottom: 25px; font-family: 'Outfit', 'Cairo'; }
             .print-q-text { font-size: 18px; font-weight: 800; color: #000; margin-bottom: 12px; direction: ltr; text-align: left; display: block; width: 100%; }
-            .print-options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; direction: ltr; }
+            .print-options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; direction: ltr; text-align: left; }
             .print-opt-item { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; color: #000;}
             .print-opt-letter { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #000; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 14px;}
             .print-rule-box { display: none; }
@@ -235,7 +237,7 @@
             /* OMR */
             .omr-container { display: none; page-break-before: always; padding: 10mm 15mm; font-family: 'Outfit'; }
             body.omr-active .omr-container { display: block !important; }
-            .omr-title { text-align: center; font-size: 24px; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; }
+            .omr-title { text-align: center; font-size: 24px; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; direction: ltr;}
             .omr-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px 30px; direction: ltr;}
             .omr-row { display: flex; align-items: center; gap: 15px; }
             .omr-q-num { font-weight: 900; font-size: 16px; width: 25px; text-align: right; }
@@ -323,8 +325,8 @@
                     <div class="exam-title-box">
                         <h2 id="print-title-out">UNIT 1 ULTIMATE ASSESSMENT (49 QS)</h2>
                         <div class="student-info-row">
-                            <div class="info-field"><span class="info-label">Student Name:</span><div class="info-line" id="print-doc-student"></div></div>
-                            <div class="info-field"><span class="info-label">Score:</span><div class="info-line" style="flex: 0.5;"></div><span style="margin-left: 10px;" id="print-score-out">/ 49</span></div>
+                            <div class="info-field name-field"><span class="info-label">Student Name:</span><div class="info-line" id="print-doc-student"></div></div>
+                            <div class="info-field score-field"><span class="info-label">Score:</span><div class="info-line" id="print-score-out">/ 49</div></div>
                         </div>
                     </div>
                     
@@ -414,7 +416,7 @@
             <button type="button" class="btn btn-solid" id="start-btn-action" onclick="startQuiz()" style="width:100%;">START ASSESSMENT ➔</button>
         </div>
 
-        <div id="quiz-screen">
+        <div id="quiz-screen" style="display: none;">
             <div class="hud-progress-wrapper">
                 <div class="hud-stats">
                     <div class="hud-student"><div class="avatar-ring" id="hud-avatar">💎</div> <span id="hud-name">--</span></div>
@@ -769,12 +771,12 @@ function startQuiz() {
         
         initQuizData(); 
         
-        const startBody = document.getElementById("start-body");
+        const startScreen = document.getElementById("start-screen");
         const quizScreen = document.getElementById("quiz-screen");
         const timerContainer = document.getElementById("timer-container");
         const eyeContainer = document.getElementById("eye-care-container");
 
-        if(startBody) startBody.style.display = "none";
+        if(startScreen) startScreen.style.display = "none";
         if(quizScreen) quizScreen.style.display = "block";
         if(timerContainer) timerContainer.style.display = "flex";
         if(eyeContainer) eyeContainer.style.display = "flex";
@@ -962,7 +964,10 @@ function calculateScore() {
     try {
         if (timerInterval) clearInterval(timerInterval);
         
+        const startScreen = document.getElementById("start-screen");
+        const quizScreen = document.getElementById("quiz-screen");
         const startBody = document.getElementById("start-body");
+        
         const timerContainer = document.getElementById("timer-container");
         const eyeContainer = document.getElementById("eye-care-container");
         const resultScreen = document.getElementById("result-screen");
