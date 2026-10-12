@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Theme Name: Neon Emerald (Titanium V.Max - Print Master V.MAX) - EXCLUSIVE EDITION -->
+    <title>🌟 التحدي الأكبر 🚀</title>
+
+    <meta property="og:title" content="🌟 التحدي الأكبر 🚀">
+    <meta property="og:description" content="تحدي استثنائي مصمم لقياس تركيزك الحقيقي في قواعد اللغة. هل تقبل التحدي؟">
+    <meta property="og:image" content="https://dummyimage.com/1200x630/F8FAFC/059669.png&text=Elite+Challenge">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Outfit:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        /* ========================================================
+           💎 UI THEME: Neon Emerald (Titanium V.Max)
+           ======================================================== */
+        :root {
+            --bg-dark: #F8FAFC; 
+            --glass-bg: rgba(255, 255, 255, 0.95);
+            --glass-border: rgba(5, 150, 105, 0.25); 
+            --text-main: #0F172A; 
+            --text-muted: #64748B; 
+            --q-font-size: 22px; 
+            --error-color: #E11D48; 
+            --success-color: #059669; 
+            --accent: #059669; 
+            --accent-glow: rgba(5, 150, 105, 0.2);
+        }
+
+        body.theme-2 { --accent: #2563EB; --accent-glow: rgba(37, 99, 235, 0.2); } 
+        body.theme-3 { --accent: #7C3AED; --accent-glow: rgba(124, 58, 237, 0.2); } 
+        body.theme-4 { --accent: #D97706; --accent-glow: rgba(217, 119, 6, 0.2); } 
+        body.theme-5 { --accent: #4F46E5; --accent-glow: rgba(79, 70, 229, 0.2); } 
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { -webkit-user-select: none; user-select: none; font-family: 'Cairo', sans-serif; background-color: var(--bg-dark); color: var(--text-main); min-height: 100vh; padding: 20px 10px; overflow-x: hidden; }
+        input { -webkit-user-select: auto !important; user-select: auto !important; pointer-events: auto !important;}
+        .review-item *, .explanation-box *, .print-options-grid * { -webkit-user-select: text; user-select: text; }
+
+        body, .glass-panel, .accent-text, .btn, .timer-box, .badge-award, .bg-orb, .vip-phone, header img { transition: 0.5s ease; }
+
+        .bg-grid { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px); background-size: 35px 35px; }
+        .bg-orb { position: fixed; top: -20%; left: 50%; transform: translateX(-50%); width: 80vw; height: 80vw; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%); z-index: 0; filter: blur(100px); pointer-events: none; }
+
+        .main-container { width: 100%; max-width: 850px; margin: 0 auto; background: var(--glass-bg); backdrop-filter: blur(40px); border-radius: 24px; border: 1px solid var(--glass-border); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.05); display: flex; flex-direction: column; position: relative; z-index: 10; }
+
+        /* Header Setup */
+        header { padding: 75px 20px 30px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; border-bottom: 1px solid rgba(0,0,0,0.05); position: relative; }
+        
+        .top-bar-controls { position: absolute; top: 20px; left: 0; width: 100%; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; z-index: 20; direction: ltr !important; }
+        .left-controls { display: flex; align-items: center; gap: 8px; }
+        .right-controls { display: flex; align-items: center; gap: 8px; }
+        
+        header img { width: 115px; height: 115px; object-fit: contain; background-color: #FFFFFF !important; padding: 6px; border-radius: 50%; border: 3px solid var(--accent); box-shadow: 0 10px 25px var(--accent-glow); cursor: pointer; flex-shrink: 0; aspect-ratio: 1/1; }
+        header h1 { font-family: 'Outfit', sans-serif; font-size: 32px; font-weight: 900; margin: 10px 0 0; direction: ltr;}
+        header .job-title { font-size: 15px; font-weight: 800; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; direction: ltr;}
+        header .slogan { font-family: 'Outfit', sans-serif; font-size: 16px; font-style: italic; color: var(--accent); margin: 5px 0 10px 0; direction: ltr; unicode-bidi: isolate;}
+        .vip-phone { background: linear-gradient(135deg, var(--accent), #047857); color: #FFF; font-family: 'Outfit', sans-serif; padding: 8px 28px; border-radius: 30px; font-weight: 900; font-size: 16px; letter-spacing: 2px; box-shadow: 0 5px 20px var(--accent-glow); direction: ltr; }
+
+        .timer-box { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.05); border-radius: 12px; padding: 0 16px; height: 44px; display: flex; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .time-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; animation: blink 1s infinite; box-shadow: 0 0 10px var(--accent);}
+        .timer-box.danger { color: var(--error-color); border-color: var(--error-color); box-shadow: 0 0 15px rgba(225,29,72,0.15);}
+        .timer-box.danger .time-dot { background: var(--error-color); box-shadow: 0 0 10px var(--error-color);}
+        .hidden-timer { color: transparent !important; box-shadow: none;}
+        
+        .icon-btn { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.05); border-radius: 12px; width: 44px; height: 44px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; outline: none; transition: 0.3s; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .icon-btn:hover { border-color: var(--accent); color: var(--accent); background: #F8FAFC; box-shadow: 0 5px 15px var(--accent-glow);}
+
+        /* Smart Cheers */
+        .cheer-wrapper { position: fixed; top: -120px; right: 20px; z-index: 99999; pointer-events: none; transition: top 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .cheer-wrapper.show { top: 20px; }
+        .cheer-bubble { background: #FFFFFF; backdrop-filter: blur(20px); border-radius: 16px; padding: 18px 24px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 15px; border: 1px solid rgba(0,0,0,0.05); border-right: 5px solid var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.08); direction: rtl; }
+        .cheer-bubble img { grid-column: 2; grid-row: 1 / span 3; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent); background: #FFFFFF !important; padding: 4px; object-fit: contain; aspect-ratio: 1/1; }
+        .cheer-en { font-family:'Outfit', sans-serif; font-size:15px; font-weight:900; direction:ltr; text-align:left;}
+        .cheer-separator { grid-column: 1; width: 100%; height: 1px; background: rgba(0,0,0,0.05); border-bottom: 1px dashed rgba(0,0,0,0.05); margin: 6px 0;}
+        .cheer-ar { font-family:'Cairo', sans-serif; font-size:14px; font-weight:800; color:var(--accent); direction:rtl; text-align:right;}
+
+        @keyframes blink { 0%, 100% {opacity:1;} 50% {opacity:0.2;} }
+
+        .content-body { padding: 40px 30px; flex: 1; position: relative;}
+        #start-screen { text-align: center; }
+        .welcome-card { background: #FFFFFF; border-radius: 20px; padding: 45px 25px; margin-bottom: 30px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .welcome-card h3 { font-size: 26px; font-weight: 900; color: var(--accent); margin-bottom: 20px;}
+        
+        .ta-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
+        .ta-btn { background: #FFFFFF; color: var(--text-muted); border: 2px solid #E2E8F0; padding: 16px; font-size: 16px; border-radius: 14px; font-weight: 800; font-family: 'Outfit', 'Cairo'; cursor: pointer; transition: 0.3s;}
+        .ta-btn.active { background: var(--accent-glow); color: var(--accent); border-color: var(--accent); box-shadow: 0 5px 15px var(--accent-glow); transform: scale(1.02); }
+
+        .avatar-grid { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 35px; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 5px;}
+        .avatar-option { font-size: 34px; padding: 14px 20px; background: #FFFFFF; border-radius: 16px; cursor: pointer; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.02); transition: 0.3s; flex-shrink: 0;}
+        .avatar-option.selected { background: #F8FAFC; border-color: var(--accent); box-shadow: 0 10px 25px var(--accent-glow); transform: scale(1.1) translateY(-5px);}
+
+        .input-group input { width: 100%; padding: 22px; border-radius: 16px; border: 1px solid rgba(0,0,0,0.08); background: #FFFFFF; color: var(--accent); font-size: 18px; outline: none; margin-bottom: 30px; font-weight: 800; text-align: center; box-shadow: inset 0 2px 8px rgba(0,0,0,0.02); transition: 0.3s; }
+        .input-group input:focus { border-color: var(--accent); box-shadow: inset 0 2px 8px rgba(0,0,0,0.02), 0 0 20px var(--accent-glow); }
+
+        #quiz-screen, #result-screen { display: none; }
+        
+        .hud-progress-wrapper { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.05); border-radius: 16px; padding: 20px 24px 30px; margin-bottom: 35px; box-shadow: 0 10px 25px rgba(0,0,0,0.02); position: relative; }
+        .hud-progress-wrapper::before { content: ''; position: absolute; top: 0; right: 0; width: 6px; height: 100%; background: var(--accent); border-radius: 0 16px 16px 0; }
+        .hud-stats { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; direction: rtl; flex-wrap: wrap; gap: 10px; }
+        .hud-student { display: flex; align-items: center; gap: 14px; font-weight: 800; font-size: 17px;}
+        .hud-student .avatar-ring { background: #FFFFFF; border: 2px solid var(--accent); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px var(--accent-glow); font-size: 24px; flex-shrink: 0;}
+        .hud-counter { font-family: 'Outfit'; font-weight: 900; font-size: 18px; color: var(--accent); direction: ltr;}
+        .hud-bar-container { margin-top: 30px; height: 8px; background: #F1F5F9; border-radius: 4px; position: relative; direction: ltr; margin-right: 25px; margin-left: 25px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.04); }
+        .hud-bar-fill { position: relative; height: 100%; background: linear-gradient(90deg, var(--accent), #34D399); width: 0%; transition: width 0.6s ease; border-radius: 4px;}
+        .hud-avatar-runner { position: absolute; right: -22px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; background: #FFFFFF; border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 5px 15px var(--accent-glow); flex-shrink: 0; z-index: 5; transition: 0.6s ease;}
+
+        .station-card { background: #FFFFFF; padding: 40px 30px; border-radius: 20px; margin-bottom: 35px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 15px 35px rgba(0,0,0,0.03); }
+        .question-text { display: flex; align-items: center; gap: 20px; margin-bottom: 40px; direction: ltr; }
+        .question-text-wrapper { flex: 1; font-family: 'Outfit'; font-size: var(--q-font-size); font-weight: 800; line-height: 1.7; transition: 0.3s;}
+        
+        .options-list { display: flex; flex-direction: column; gap: 18px; direction: ltr; }
+        .option-item { background: #F8FAFC; border: 1px solid #E2E8F0; border-left: 5px solid #94A3B8; border-radius: 14px; padding: 20px 24px; cursor: pointer; display: flex; align-items: center; gap: 20px; transition: 0.2s; }
+        .option-item.selected { background: #FFFFFF; border-color: var(--accent); border-left: 6px solid var(--accent); box-shadow: 0 10px 25px rgba(0,0,0,0.04); }
+        .opt-letter { background: #FFFFFF; color: var(--accent); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Outfit'; font-weight: 900; font-size: 18px; border: 1px solid rgba(0,0,0,0.05); flex-shrink:0;}
+        .option-item.selected .opt-letter { background: var(--accent); color: #FFFFFF; }
+        .opt-text { font-family: 'Outfit'; font-weight: 600; font-size: 19px; }
+
+        .action-btns { display: flex; flex-direction: row-reverse; justify-content: space-between; gap: 20px; direction: ltr;}
+        .btn { padding: 20px 30px; border-radius: 16px; font-weight: 900; font-size: 17px; border: 1px solid var(--accent); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Outfit', 'Cairo'; text-transform: uppercase; transition: 0.3s; }
+        .btn-outline { background: transparent; color: var(--accent); }
+        .btn-outline:hover:not(:disabled) { background: var(--accent); color: #FFFFFF; box-shadow: 0 10px 25px var(--accent-glow);}
+        .btn-prev { min-width: 140px; border-color: #E2E8F0; color: var(--text-muted);}
+        .btn-prev:hover:not(:disabled) { border-color: var(--text-main); color: var(--text-main); background:#F8FAFC;}
+        .btn-prev:disabled { opacity: 0.3; cursor: not-allowed;}
+        .btn-solid { background: linear-gradient(135deg, var(--accent), #047857); color: #FFFFFF; box-shadow: 0 10px 30px var(--accent-glow); flex: 1; font-size:19px;}
+        .btn-solid:hover { transform: translateY(-3px); box-shadow: 0 15px 35px var(--accent-glow);}
+
+        .score-card { background: #FFFFFF; border-radius: 24px; padding: 50px 25px; text-align: center; margin-bottom: 40px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 50px rgba(0,0,0,0.03);}
+        .score-circle { width: 240px; height: 240px; border-radius: 50%; margin: 0 auto 35px; display: flex; align-items: center; justify-content: center; font-family: 'Outfit'; font-size: 65px; font-weight: 900; color: #FFFFFF; background: linear-gradient(135deg, var(--accent), #34D399); border: 12px solid #FFFFFF; box-shadow: 0 15px 40px var(--accent-glow), 0 0 0 5px var(--accent); direction: ltr;}
+        
+        .exam-title-display { font-family: 'Outfit', 'Cairo'; font-size: 26px; font-weight: 900; color: var(--text-main); margin-bottom: 15px; direction: ltr; display: inline-flex; align-items: center; justify-content: center; gap: 10px;}
+        .edit-icon { cursor: pointer; font-size: 22px; transition: 0.3s; opacity: 0.7;}
+        .edit-icon:hover { opacity: 1; transform: scale(1.1);}
+
+        #student-display-name { font-size: 24px; font-weight: 900; color: var(--text-muted); margin-bottom: 25px; display: flex; align-items: center; justify-content: center; gap: 10px;}
+        .result-avatar { font-size: 28px; background: #FFFFFF; border: 2px solid var(--accent); border-radius: 50%; width: 50px; height: 50px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;}
+        
+        .scratch-container { position: relative; display: inline-block; margin-top: 10px; border-radius: 16px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05);}
+        .badge-award { display: inline-block; background: linear-gradient(135deg, var(--accent), #047857); color: #FFFFFF; padding: 24px 40px; font-weight: 900; font-size: 24px; min-width: 320px; min-height: 85px; font-family: 'Outfit', 'Cairo'; }
+        #scratch-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: crosshair; z-index: 5; }
+
+        .result-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 50px;}
+        .result-actions .btn { width: 100%; font-size: 15px; padding: 18px; border-radius: 14px;}
+        .btn-full { grid-column: span 2; }
+        .btn-whatsapp { background: #25D366; color: #fff; border-color: #25D366; }
+
+        .review-item { background: #FFFFFF; border-radius: 16px; padding: 30px; margin-bottom: 25px; text-align: left; direction: ltr; border: 1px solid #E2E8F0; box-shadow: 0 5px 20px rgba(0,0,0,0.02); page-break-inside: avoid;}
+        .review-item.is-correct { border-left: 6px solid var(--success-color); }
+        .review-item.is-wrong { border-left: 6px solid var(--error-color); }
+        .explanation-box { background: #F8FAFC; border-radius: 12px; padding: 22px; margin-top: 20px; border-right: 4px solid var(--accent); display: flex; flex-direction: column; gap: 16px; border: 1px solid rgba(0,0,0,0.02);}
+        .exp-en { direction: ltr; text-align: left; color: var(--text-muted); font-family: 'Outfit'; font-size: 16px; font-weight: 600; line-height: 1.6; }
+        .exp-separator { width: 100%; height: 1px; background: #E2E8F0; border-bottom: 1px dashed #CBD5E1; }
+        .exp-ar { direction: rtl; text-align: right; color: var(--text-main); font-weight: 700; font-size: 16px; line-height: 1.7; }
+        
+        #cheat-modal, #pause-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.6); z-index: 999999; align-items: center; justify-content: center; backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); }
+        .cheat-content { background: #FFFFFF; padding: 50px; border-radius: 24px; text-align: center; max-width: 90%; width: 500px; border: 2px solid var(--error-color); box-shadow: 0 25px 50px rgba(0,0,0,0.1); }
+
+        /* ========================================================
+           🎛️ Teacher Control Panel (UI Only)
+           ======================================================== */
+        .teacher-cp { display: flex; align-items: center; justify-content: space-between; background: #0F172A; padding: 15px 20px; border-radius: 12px; margin-bottom: 20px; color: #fff; direction: rtl; font-family: 'Cairo'; }
+        .cp-inputs { display: flex; gap: 15px; flex: 1; }
+        .cp-inputs input { padding: 10px 15px; border-radius: 8px; border: 1px solid #334155; background: #1E293B; color: #fff; font-family: 'Outfit', 'Cairo'; outline: none; }
+        .cp-actions { display: flex; gap: 10px; }
+        .cp-btn { background: #3B82F6; color: #fff; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; font-family: 'Cairo'; font-weight: bold; transition: 0.2s; display: flex; align-items: center; gap: 5px;}
+        .cp-btn:hover { background: #2563EB; }
+        .cp-btn.btn-teacher { background: #F59E0B; } .cp-btn.btn-teacher:hover { background: #D97706; }
+        .cp-btn.btn-omr { background: #10B981; } .cp-btn.btn-omr:hover { background: #059669; }
+        .cp-btn.active { box-shadow: inset 0 0 10px rgba(0,0,0,0.5); opacity: 0.8;}
+
+        /* ========================================================
+           🖨️ PRINT MASTER ENGINE V.MAX (A4, Header, Footer, Watermark)
+           ======================================================== */
+        #print-container { display: none; }
+
+        @media print {
+            @page { size: A4; margin: 0; }
+            body { background: #fff !important; color: #000 !important; margin: 0; padding: 0; }
+            .no-print, #app-container, .bg-orb, .bg-grid { display: none !important; }
+            
+            #print-container { display: block !important; width: 100%; max-width: 210mm; margin: 0 auto; background: transparent; }
+            
+            table.print-table { width: 100%; border-collapse: collapse; }
+            thead.print-thead { display: table-header-group; }
+            tfoot.print-tfoot { display: table-footer-group; }
+            tbody.print-tbody { display: table-row-group; }
+            
+            .header-content { display: flex; align-items: center; gap: 15px; padding: 15mm 15mm 5mm; border-bottom: 2px solid #000; margin-bottom: 5mm; justify-content: flex-start; text-align: left; }
+            .header-content img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid #000; }
+            .header-content div strong { font-family: 'Outfit'; font-size: 26px; font-weight: 900; display: block; color: #000; line-height: 1.2; text-align: left; }
+            .header-content div span { font-family: 'Outfit'; font-size: 14px; color: #333; text-transform: uppercase; letter-spacing: 1px; text-align: left; display: block;}
+
+            .footer-content { display: flex; justify-content: space-between; align-items: center; padding: 5mm 15mm 15mm; border-top: 2px solid #000; font-family: 'Outfit'; font-weight: bold; font-size: 14px; color: #000; }
+            .page-number:after { counter-increment: page; content: "Page " counter(page); }
+
+            .print-watermark { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.08; z-index: 9999; pointer-events: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; text-align: center; }
+            .print-watermark img { width: 350px; height: 350px; border-radius: 50%; filter: grayscale(100%); display: block; margin: 0 auto;}
+            .print-watermark h1 { display: none !important; }
+
+            .exam-title-box { text-align: center; margin-bottom: 10mm; padding: 0 15mm;}
+            .exam-title-box h2 { font-family: 'Outfit'; font-size: 28px; font-weight: 900; color: #000; text-transform: uppercase; margin-bottom: 10px; }
+            .student-info-row { display: flex; align-items: center; justify-content: center; gap: 20px; font-family: 'Outfit', 'Cairo'; font-size: 16px; font-weight: 700; width: 100%; }
+            .info-field { display: flex; align-items: flex-end; flex: 1; }
+            .info-label { margin-right: 10px; white-space: nowrap; }
+            .info-line { border-bottom: 2px dotted #000; flex: 1; min-height: 20px; padding-bottom: 2px; text-align: center;}
+            #print-doc-student { font-size: 18px; color: #000; }
+
+            .print-q-container { padding: 0 15mm; }
+            .print-q-item { page-break-inside: avoid; margin-bottom: 25px; font-family: 'Outfit', 'Cairo'; }
+            .print-q-text { font-size: 18px; font-weight: 800; color: #000; margin-bottom: 12px; direction: ltr; text-align: left; display: inline-block; unicode-bidi: isolate; }
+            .print-options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; direction: ltr; }
+            .print-opt-item { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; color: #000;}
+            .print-opt-letter { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #000; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 14px;}
+            .print-rule-box { display: none; }
+
+            /* MODE 1: Blank Exam */
+            body.print-blank-mode .ui-ans-box, body.print-blank-mode .explanation-box { display: none !important; }
+            body.print-blank-mode .print-options-grid { display: grid !important; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; font-family: 'Outfit'; font-size: 16px; font-weight: 600; }
+            body.print-blank-mode .review-item.is-correct, body.print-blank-mode .review-item.is-wrong { border-left: 1px solid #ccc !important; }
+
+            /* MODE 2: Smart Notes */
+            body.print-notes-mode #print-title-out::after { content: " (Smart Revision Notes)"; font-size: 16px; color: #555; display: block; margin-top: 5px; text-transform: none;}
+            body.print-notes-mode .print-q-item.ans-correct { display: none !important; }
+            body.print-notes-mode .print-opt-item:not(.is-correct-opt) { display: none !important; }
+            body.print-notes-mode .print-opt-item.is-correct-opt { display: flex !important; background: #f0fdf4 !important; border: 1px solid #16a34a !important; padding: 10px; border-radius: 8px; -webkit-print-color-adjust: exact; print-color-adjust: exact;}
+            body.print-notes-mode .print-opt-item.is-correct-opt .print-opt-letter { background: #16a34a !important; color: #fff !important; border-color: #16a34a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact;}
+            body.print-notes-mode .print-rule-box { display: block !important; background: #f8fafc !important; border: 1px dashed #64748b !important; padding: 12px !important; border-radius: 8px !important; margin-top: 12px !important; font-family: 'Cairo'; font-size: 15px; font-weight: 700; direction: rtl; text-align: right; -webkit-print-color-adjust: exact; print-color-adjust: exact;}
+            body.print-notes-mode .omr-container { display: none !important; }
+
+            /* TEACHER MODE */
+            body.teacher-mode-active .print-opt-item.is-correct-opt .print-opt-letter { background: #000 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            body.teacher-mode-active .print-opt-item.is-correct-opt .print-opt-text { text-decoration: underline; font-weight: 900;}
+            body.teacher-mode-active .print-rule-box { display: block !important; background: #f0f0f0 !important; border: 1px solid #000 !important; padding: 10px !important; border-radius: 8px !important; margin-top: 10px !important; font-family: 'Cairo'; font-size: 14px; font-weight: 700; direction: rtl; text-align: right; -webkit-print-color-adjust: exact; print-color-adjust: exact;}
+
+            /* OMR */
+            .omr-container { display: none; page-break-before: always; padding: 10mm 15mm; font-family: 'Outfit'; }
+            body.omr-active .omr-container { display: block !important; }
+            .omr-title { text-align: center; font-size: 24px; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; }
+            .omr-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px 30px; direction: ltr;}
+            .omr-row { display: flex; align-items: center; gap: 15px; }
+            .omr-q-num { font-weight: 900; font-size: 16px; width: 25px; text-align: right; }
+            .omr-bubbles { display: flex; gap: 5px; }
+            .omr-bubble { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #000; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; }
+            body.teacher-mode-active .omr-bubble.is-correct-bubble { background: #000 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact;}
+        }
+
+        /* ========================================================
+           📱 MOBILE THUMB-FRIENDLY ADJUSTMENTS
+           ======================================================== */
+        @media (max-width: 768px) {
+            body { padding: 12px 6px; }
+            .main-container { border-radius: 20px;}
+            header { padding: 65px 15px 25px; }
+            .top-bar-controls { top: 12px; padding: 0 12px; }
+            header img { width: 90px; height: 90px; margin-top: 15px;}
+            header h1 { font-size: 24px; }
+            
+            .timer-box { font-size: 15px; height: 40px; }
+            .icon-btn { width: 40px; height: 40px; }
+            
+            .cheer-bubble { padding: 14px 18px; }
+            
+            .avatar-grid { gap: 10px; }
+            .avatar-option { font-size: 26px; padding: 10px 14px; }
+            
+            .action-btns { flex-direction: column; gap: 14px; margin-top: 35px;}
+            .btn { width: 100%; font-size: 16px; padding: 18px; }
+            
+            .result-actions { grid-template-columns: 1fr; }
+            .btn-full { grid-column: span 1; }
+            .score-circle { width: 180px; height: 180px; font-size: 45px;}
+            
+            .teacher-cp { flex-direction: column; gap: 15px; }
+            .cp-inputs { width: 100%; flex-direction: column; gap: 10px;}
+            .cp-actions { width: 100%; justify-content: space-between; flex-wrap: wrap; }
+            .cp-btn { flex: 1; justify-content: center; font-size: 13px;}
+        }
+    </style>
+</head>
+<body id="main-body" class="theme-1">
+
+<div class="bg-orb"></div>
+<div class="bg-grid"></div>
+
+<div id="cheat-modal">
+    <div class="cheat-content">
+        <h1>🚨 نظام المراقبة الصامت</h1>
+        <p id="cheat-msg">تم رصد فقدان التركيز والخروج من شاشة التقييم.</p>
+        <button onclick="document.getElementById('cheat-modal').style.display='none'" class="btn btn-outline" style="color:var(--error-color); border-color:var(--error-color); width:100%;">أعتذر، سأحافظ على تركيزي</button>
+    </div>
+</div>
+
+<div id="pause-modal">
+    <div class="cheat-content" style="border-color: var(--accent);">
+        <h1 style="color: var(--accent);">⏸️ إيقاف مؤقت</h1>
+        <p id="pause-count-msg" style="color: var(--text-main); font-size: 18px; margin-bottom: 20px;"></p>
+        <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 30px;">رادار المراقبة لا يزال يعمل. الخروج من المتصفح سيسجل تحذيراً.</p>
+        <button type="button" onclick="togglePause()" class="btn btn-solid" style="width:100%;">▶️ استئناف التحدي</button>
+    </div>
+</div>
+
+<!-- ========================================================
+     🖨️ PRINT MASTER ENGINE V.MAX CONTAINER
+     ======================================================== -->
+<div id="print-container">
+    <div class="print-watermark">
+        <img src="https://lh3.googleusercontent.com/d/1BqwA44F0BAwWMSwBnBeDIkfkNgBEtif-" alt="Watermark">
+    </div>
+    <table class="print-table">
+        <thead class="print-thead">
+            <tr>
+                <td>
+                    <div class="header-content">
+                        <img src="https://lh3.googleusercontent.com/d/1BqwA44F0BAwWMSwBnBeDIkfkNgBEtif-" alt="Logo">
+                        <div><strong>Mr. Ayman Kamel</strong><span>English Language Educator</span></div>
+                    </div>
+                </td>
+            </tr>
+        </thead>
+        <tbody class="print-tbody">
+            <tr>
+                <td>
+                    <div class="exam-title-box">
+                        <h2 id="print-title-out">UNIT 1 ULTIMATE ASSESSMENT (49 QS)</h2>
+                        <div class="student-info-row">
+                            <div class="info-field"><span class="info-label">Student Name:</span><div class="info-line" id="print-doc-student"></div></div>
+                            <div class="info-field"><span class="info-label">Score:</span><div class="info-line" style="flex: 0.5;"></div><span style="margin-left: 10px;" id="print-score-out">/ 49</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="print-q-container" id="print-q-list"></div>
+
+                    <div class="omr-container">
+                        <div class="omr-title">OMR Bubble Sheet</div>
+                        <div class="omr-grid" id="omr-grid"></div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot class="print-tfoot">
+            <tr>
+                <td>
+                    <div class="footer-content">
+                        <div>📞 01284749899</div>
+                        <div class="page-number"></div>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div class="main-container" id="app-container">
+    
+    <header class="no-print">
+        <div class="top-bar-controls">
+            <div class="left-controls">
+                <div class="time-controls" id="timer-container" style="display: none;">
+                    <div class="timer-box" id="timer-box"><div class="time-dot"></div><span id="timer-text">--:--</span></div>
+                    <button type="button" class="icon-btn" id="btn-pause" onclick="togglePause()" title="إيقاف مؤقت">⏸️</button>
+                    <button type="button" class="icon-btn" id="btn-timer-view" onclick="toggleTimerView()" title="إخفاء الوقت">⏱️</button>
+                </div>
+            </div>
+            <div class="right-controls">
+                <div class="eye-care-controls" id="eye-care-container" style="display: none;">
+                    <button type="button" class="icon-btn" onclick="changeFontSize(2)" title="تكبير الخط">A+</button>
+                    <button type="button" class="icon-btn" onclick="changeFontSize(-2)" title="تصغير الخط">A-</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cheer-wrapper" id="cheer-wrapper">
+            <div class="cheer-bubble">
+                <div class="cheer-text">
+                    <div class="cheer-en" id="cheer-en"></div>
+                    <div class="cheer-separator"></div>
+                    <div class="cheer-ar" id="cheer-ar"></div>
+                </div>
+                <img src="https://lh3.googleusercontent.com/d/1BqwA44F0BAwWMSwBnBeDIkfkNgBEtif-" alt="Mr. Ayman Kamel">
+            </div>
+        </div>
+        <img src="https://lh3.googleusercontent.com/d/1BqwA44F0BAwWMSwBnBeDIkfkNgBEtif-" alt="Mr. Ayman Kamel Logo" onclick="triggerEasterEgg()">
+        <h1>Mr. Ayman Kamel</h1>
+        <p class="job-title">English Language Educator</p>
+        <p class="slogan" style="unicode-bidi: isolate; direction: ltr;">"Let's learn together!"</p>
+        <div class="vip-phone">📞 01284749899</div>
+    </header>
+
+    <div class="content-body no-print" id="start-body">
+        <div id="start-screen">
+            <div class="welcome-card">
+                <h3>🌟 خطوتك نحو القمة تبدأ هنا!</h3>
+                <p>تحدي استثنائي لقياس تركيزك الحقيقي في قواعد اللغة الإنجليزية (الوحدة الأولى). اقرأ التفاصيل بدقة واستعد لإثبات جدارتك.<br><br>هل تقبل التحدي وتستطيع الوصول للقمة؟</p>
+            </div>
+            
+            <h4 style="color: var(--text-main); font-weight: 800; margin-bottom: 15px; text-align: center;">اختار مستوى التحدي الزمني:</h4>
+            <div class="ta-grid">
+                <button type="button" class="btn ta-btn" onclick="setTimeAttack(20, this)">⚡ 20ث (أساطير)</button>
+                <button type="button" class="btn ta-btn" onclick="setTimeAttack(30, this)">🔥 30ث (محترفين)</button>
+                <button type="button" class="btn ta-btn" onclick="setTimeAttack(45, this)">⏳ 45ث (أبطال)</button>
+                <button type="button" class="btn ta-btn active" onclick="setTimeAttack(0, this)">🛑 كلاسيك (وقت مفتوح)</button>
+            </div>
+            
+            <h4 style="color: var(--text-main); font-weight: 800; margin-bottom: 15px; text-align: center;">اختر مفتاح العبور الخاص بك:</h4>
+            <div class="avatar-grid">
+                <div class="avatar-option selected" onclick="selectAvatar(this, '💎')">💎</div>
+                <div class="avatar-option" onclick="selectAvatar(this, '🚀')">🚀</div>
+                <div class="avatar-option" onclick="selectAvatar(this, '⚡')">⚡</div>
+                <div class="avatar-option" onclick="selectAvatar(this, '🏆')">🏆</div>
+            </div>
+            <div class="input-group">
+                <input type="text" id="studentName" placeholder="أدخل اسمك الثلاثي لتبدأ..." autocomplete="off" onkeypress="if(event.key === 'Enter') startQuiz()">
+            </div>
+            <button type="button" class="btn btn-solid" style="width:100%" onclick="startQuiz()">START ASSESSMENT ➔</button>
+        </div>
+
+        <div id="quiz-screen">
+            <div class="hud-progress-wrapper">
+                <div class="hud-stats">
+                    <div class="hud-student"><div class="avatar-ring" id="hud-avatar">💎</div> <span id="hud-name">--</span></div>
+                    <div class="hud-counter" id="progress-count">Q: 1 / 49</div>
+                </div>
+                <div class="hud-bar-container">
+                    <div class="hud-bar-fill" id="energy-bar"><div class="hud-avatar-runner" id="hud-moving-avatar">💎</div></div>
+                </div>
+            </div>
+            <div class="station-card" id="q-box">
+                <div class="question-text">
+                    <div class="question-text-wrapper"><span id="question-text-content" style="display: inline-block; unicode-bidi: isolate; direction: ltr;">--</span></div>
+                    <div class="tts-btn-container"><button type="button" class="icon-btn" style="border-color:var(--accent); color:var(--accent); background: #FFF;" onclick="speakQuestion()">🔊</button></div>
+                </div>
+                <div class="options-list" id="options-list" style="direction: ltr;"></div>
+            </div>
+            <div class="action-btns">
+                <button type="button" class="btn btn-solid" id="submit-btn" onclick="calculateScore()" style="display: none;">🚀 SUBMIT</button>
+                <button type="button" class="btn btn-solid" id="next-btn" onclick="nextQuestion()">NEXT ➔</button>
+                <button type="button" class="btn btn-prev" id="prev-btn" onclick="prevQuestion()" disabled>⬅ PREV</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="result-screen">
+        
+        <!-- 🎛️ Teacher Control Panel -->
+        <div class="teacher-cp no-print">
+            <div class="cp-inputs">
+                <input type="text" id="cp-title-in" value="UNIT 1 ULTIMATE ASSESSMENT (49 QS)" oninput="updatePrintVars()" placeholder="اسم الامتحان (للطباعة)">
+                <input type="text" id="cp-score-in" value="/ 49" oninput="updatePrintVars()" placeholder="الدرجة النهائية (مثال: / 49)">
+            </div>
+            <div class="cp-actions">
+                <button class="cp-btn btn-teacher" id="btn-t-mode" onclick="toggleTeacherMode()" title="وضع المعلم">👁️ Teacher Mode</button>
+                <button class="cp-btn btn-omr" id="btn-omr-mode" onclick="toggleOMR()" title="إظهار البابل شيت">📑 Bubble Sheet</button>
+                <button class="cp-btn" onclick="window.print()" title="طباعة">🖨️ Print Master</button>
+            </div>
+        </div>
+
+        <div class="score-card no-print">
+            <div class="score-circle" id="score-percentage">0 / 0</div>
+            <div id="score-percent-text">Accuracy: 0%</div>
+            <div id="student-display-name"><span class="result-avatar" id="res-avatar">💎</span> <span id="res-name"></span></div>
+            <div class="scratch-container">
+                <div id="badge-award-box" class="badge-award">اخدش لترى حالتك</div>
+                <canvas id="scratch-canvas"></canvas>
+            </div>
+            <p id="score-details" style="font-size: 16px; font-weight: 700; margin-top: 25px; color: var(--text-muted);"></p>
+        </div>
+
+        <div class="result-actions no-print">
+            <button type="button" class="btn btn-outline" style="background:#F8FAFC; border-color:#E2E8F0; color:var(--text-main);" onclick="printBlankExam()">🖨️ طباعة كاختبار ورقي</button>
+            <button type="button" class="btn btn-outline" style="background:#F8FAFC; border-color:#E2E8F0; color:var(--text-main);" onclick="printSmartNotes()">📥 مذكرة الأخطاء (شرح)</button>
+            
+            <button type="button" class="btn btn-solid btn-full" id="cert-btn" onclick="downloadCertificate()" style="display: none;">📜 استخراج شهادة النخبة</button>
+            <button type="button" class="btn btn-outline btn-whatsapp" onclick="shareToTeacherWhatsApp()">👨‍🏫 إرسال التقرير لمستر أيمن</button>
+            <button type="button" class="btn btn-outline btn-whatsapp" onclick="shareToParentWhatsApp()">👨‍👩‍👧 تقرير ولي الأمر</button>
+            <button type="button" class="btn btn-outline btn-full" style="color:var(--accent); border-color:var(--accent);" onclick="location.reload()">🔄 إعادة المحاولة</button>
+        </div>
+
+        <h3 class="no-print" style="text-align: right; color: var(--text-main); margin-top: 20px; border-bottom: 2px dashed rgba(0,0,0,0.1); padding-bottom: 12px; font-weight: 900;">📂 المراجعة اللحظية (Smart Revision):</h3>
+        
+        <div id="review-list" class="no-print"></div>
+    </div>
+</div>
+
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxps3pkSIfSFL8rwhCNMlNCEYkeL2ooxYo_6WgWRXHHL0hcY0owu-x0qRtZei0migOyxg/exec";
+
+function tryVibrate(pattern) { if (navigator.vibrate) try { navigator.vibrate(pattern); } catch(e){} }
+
+/* 🎛️ Teacher Control Panel Functions */
+function updatePrintVars() {
+    document.getElementById("print-title-out").innerText = document.getElementById("cp-title-in").value;
+    document.getElementById("print-score-out").innerText = document.getElementById("cp-score-in").value;
+}
+function toggleTeacherMode() {
+    document.body.classList.toggle("teacher-mode-active");
+    document.getElementById("btn-t-mode").classList.toggle("active");
+}
+function toggleOMR() {
+    document.body.classList.toggle("omr-active");
+    document.getElementById("btn-omr-mode").classList.toggle("active");
+}
+
+/* 🖨️ Print Master Engine Modes */
+function printBlankExam() {
+    document.body.classList.remove('print-notes-mode');
+    document.body.classList.add('print-blank-mode');
+    window.print();
+    document.body.classList.remove('print-blank-mode');
+}
+function printSmartNotes() {
+    document.body.classList.remove('print-blank-mode');
+    document.body.classList.add('print-notes-mode');
+    window.print();
+    document.body.classList.remove('print-notes-mode');
+}
+
+/* Audio & Init */
+let audioCtx = null;
+function initAudio() { try { if (!audioCtx) { const AudioContext = window.AudioContext || window.webkitAudioContext; if(AudioContext) audioCtx = new AudioContext(); } if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume(); } catch(e) {} }
+function playTone(freq, type, duration) { try { initAudio(); if (!audioCtx) return; let osc = audioCtx.createOscillator(), gain = audioCtx.createGain(); osc.type = type; osc.frequency.value = freq; gain.gain.setValueAtTime(0.05, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration); osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + duration); } catch(e) {} }
+function soundWrongTime() { tryVibrate([100, 50, 100]); playTone(150, 'sawtooth', 0.3); setTimeout(()=>playTone(100, 'sawtooth', 0.4), 200); }
+function soundBossWin() { tryVibrate([200, 100, 200, 100, 200]); [523, 659, 783, 1046, 1318].forEach((f,i)=> setTimeout(()=>playTone(f,'square',0.15), i*100)); }
+
+function speakQuestion() {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        let text = quizData[currentQuestion].originalQ.replace(/_+/g, "blank").replace(/\.{3,}/g, "blank");
+        let msg = new SpeechSynthesisUtterance(text); msg.lang = 'en-US'; msg.rate = 0.85;
+        window.speechSynthesis.speak(msg);
+    }
+}
+
+function initScratchCard() {
+    const container = document.getElementById("badge-award-box");
+    const canvas = document.getElementById("scratch-canvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = container.offsetWidth; canvas.height = container.offsetHeight;
+    let currentAccent = getComputedStyle(document.body).getPropertyValue('--accent').trim() || '#059669';
+    ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = "bold 18px 'Cairo', sans-serif"; ctx.fillStyle = currentAccent;
+    ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText("🪄 اخدش عشان تشوف نتيجتك", canvas.width/2, canvas.height/2);
+    let isDrawing = false;
+    function scratch(e) {
+        if(!isDrawing) return; e.preventDefault();
+        let rect = canvas.getBoundingClientRect();
+        let x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
+        let y = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
+        ctx.globalCompositeOperation = "destination-out";
+        ctx.beginPath(); ctx.arc(x, y, 35, 0, Math.PI*2); ctx.fill();
+    }
+    canvas.onmousedown = () => isDrawing = true; canvas.ontouchstart = () => isDrawing = true;
+    canvas.onmouseup = () => isDrawing = false; canvas.ontouchend = () => isDrawing = false;
+    canvas.onmousemove = scratch; canvas.ontouchmove = scratch;
+}
+
+const cheers = [
+    {en: "You are dominating!", ar: "وحش، إنت مسيطر على الموقف تماماً!"},
+    {en: "Precision is key!", ar: "دماغك ألماظ، تركيزك في محله!"},
+    {en: "Keep up the great work!", ar: "كمل على كده، مفيش حاجة هتوقفك!"},
+    {en: "Unstoppable momentum!", ar: "الدوسة دي متوقفهاش، هانت!"},
+    {en: "Brilliant execution!", ar: "الله ينور، أداء متعلمين بجد!"},
+    {en: "Don't let anything distract you!", ar: "خليك فايق ومصحصح، الغلطة بفورة!"},
+    {en: "You're closer to perfection!", ar: "خطوة كمان والتقفيل يبقى بتاعك!"},
+    {en: "Take a deep breath and conquer!", ar: "خد نفس عميق وفرتك اللي بعده."},
+    {en: "Pure genius!", ar: "عبقرية ماشية على الأرض، استمر!"},
+    {en: "Every detail matters!", ar: "ركز في التفاصيل، هي دي اللي بتفرق!"},
+    {en: "You're on fire today!", ar: "إنت مولعها النهاردة، بطل!"},
+    {en: "Stay sharp!", ar: "أوعى تسرح، عينك في وسط راسك!"},
+    {en: "Legendary progress!", ar: "أداء أساطير، مفيش كلام!"},
+    {en: "Nothing can break your focus!", ar: "ولا ألف سؤال يقدروا يوقعوك!"},
+    {en: "The top rank is calling!", ar: "القمة بتناديك، متتنازلش عنها!"}
+];
+let lastCheerIndex = -1; 
+function triggerTeacherCheer() {
+    const wrapper = document.getElementById("cheer-wrapper");
+    let randomIndex; do { randomIndex = Math.floor(Math.random() * cheers.length); } while (randomIndex === lastCheerIndex); 
+    lastCheerIndex = randomIndex;
+    document.getElementById("cheer-en").innerText = cheers[randomIndex].en;
+    document.getElementById("cheer-ar").innerText = cheers[randomIndex].ar;
+    wrapper.classList.add("show"); setTimeout(() => { wrapper.classList.remove("show"); }, 3500);
+}
+
+function triggerEasterEgg() { alert("💎 Neon Emerald Theme (Titanium V.Max) Active! 💎"); }
+function changeFontSize(change) {
+    const root = document.documentElement;
+    let currentSize = parseInt(getComputedStyle(root).getPropertyValue('--q-font-size')) || 22;
+    let newSize = currentSize + change;
+    if(newSize >= 16 && newSize <= 30) root.style.setProperty('--q-font-size', newSize + 'px');
+}
+
+/* 🔥 49 QUESTIONS EXTRACTED FROM ATTACHED IMAGES 🔥 */
+const rawData = [
+    { q: "1. He gave me back the book and .................... me for lending it to him.", options: ["was thanking", "thanked", "had thanked", "used to thank"], answer: 1, rule: "Past Simple Sequence", zatona: "أحداث متعاقبة في الماضي البسيط (ربط بـ and)، إذن الفعلين في التصريف الثاني (gave ... thanked)." },
+    { q: "2. A lot of students .................... absent in class yesterday.", options: ["didn't", "hadn't", "are", "were"], answer: 3, rule: "Past Simple (To Be)", zatona: "كلمة yesterday تدل على الماضي البسيط، وstudents جمع تاخذ (were)." },
+    { q: "3. How long ago .................... your father come back from London?", options: ["did", "has", "will", "had"], answer: 0, rule: "Past Simple Question (Ago)", zatona: "وجود كلمة ago في السؤال يعبر عن الماضي البسيط، فنستخدم الفعل المساعد (did)." },
+    { q: "4. The dentist .................... my tooth out the other day.", options: ["was taken", "is taking", "took", "will take"], answer: 2, rule: "Past Simple Active", zatona: "عبارة the other day دالة على الماضي البسيط، والجملة معلوم وليست مجهول (أخذ سني)." },
+    { q: "5. His father was a doctor and .................... to make his son a doctor, too.", options: ["wants", "was wanting", "had wanted", "wanted"], answer: 3, rule: "Past Simple Parallel", zatona: "الجملة تبدأ بالماضي (was)، إذن الحدث متسلسل في الماضي فنستخدم (wanted)." },
+    { q: "6. Where did you .................... to play when you were young?", options: ["used", "using", "use", "uses"], answer: 2, rule: "Used to Question Form", zatona: "في السؤال مع did نستخدم المصدر بدون d (did you use to)." },
+    { q: "7. A: Have you spoken to Mr. Sayed? B: Yes, I .................... him the other day.", options: ["phoned", "have phoned", "would phone", "used to phone"], answer: 0, rule: "Past Simple with Specific Time", zatona: "وجود تعبير محدد للماضي مثل (the other day) يفرض استخدام الماضي البسيط (phoned)." },
+    { q: "8. Karim .................... watch Egyptian movies, but now he does.", options: ["used to", "didn't use to", "wasn't used to", "use to not"], answer: 1, rule: "Used to Contrast (Negative)", zatona: "التناقض بـ (but now he does) يعني أنه في الماضي (لم يكن معتاداً)، فنستخدم (didn't use to)." },
+    { q: "9. I .................... on a picnic with my family two days ago.", options: ["go", "goes", "was going", "went"], answer: 3, rule: "Past Simple Time Expression", zatona: "كلمة (two days ago) تدل على الماضي البسيط، والتصريف الثاني لـ go هو went." },
+    { q: "10. They were very rude to us. We .................... there again.", options: ["hadn't gone", "never used to go", "didn't go", "went"], answer: 2, rule: "Past Simple Action", zatona: "حدث موقف في الماضي وترتب عليه عدم الذهاب مرة أخرى في الماضي البسيط (didn't go)." },
+    { q: "11. We usually .................... our grandfather when we were on vacation.", options: ["visited", "visits", "visiting", "visit"], answer: 0, rule: "Habit in the Past", zatona: "وجود جملة زمنية في الماضي (when we were on vacation) يحول العادة إلى الماضي البسيط (visited)." },
+    { q: "12. Ayman climbed the tree, but then he .................... afraid to get down.", options: ["is", "was", "was being", "has been"], answer: 1, rule: "Past State", zatona: "القصة في زمن الماضي (climbed)، إذن شعوره بالخوف كان في الماضي (was)." },
+    { q: "13. My bag .................... yesterday, so I called the police.", options: ["stole", "was stolen", "has been stolen", "steals"], answer: 1, rule: "Past Simple Passive", zatona: "الحقيبة سُرقت (مبني للمجهول في الماضي)، إذن (was stolen)." },
+    { q: "14. When I was young, I .................... on my father's farm.", options: ["had worked", "work", "have worked", "worked"], answer: 3, rule: "Past Habit / Fact", zatona: "فترة في الماضي (When I was young) تعبر عن حقيقة منتهية بالماضي البسيط (worked)." },
+    { q: "15. Nora .................... late when she was young. She no longer does that now.", options: ["usually sleeps", "is used to sleeping", "used to sleep", "had slept"], answer: 2, rule: "Past Habit (No longer)", zatona: "عادة كانت تحدث في الماضي وانتهت (She no longer does that now)، نستخدم (used to sleep)." },
+    { q: "16. He .................... to prison as a result of his crimes.", options: ["was taken", "took", "was taking", "had taken"], answer: 0, rule: "Past Simple Passive", zatona: "هو أُخذ إلى السجن (مبني للمجهول في الماضي)، فنختار (was taken)." },
+    { q: "17. She used to tell lies, but now she no longer .................... .", options: ["doesn't", "isn't", "does", "has"], answer: 2, rule: "Present Simple Contrast", zatona: "تعبير no longer يفيد النفي، والجملة الآن في المضارع البسيط، فالمساعد المثبت يعود على الفعل (does)." },
+    { q: "18. .................... you out yesterday? I tried to phone you, but there was no answer.", options: ["Were", "Had", "Did", "Was"], answer: 0, rule: "Past Simple To Be Question", zatona: "وجود صفة (out) بدون فعل أساسي في السؤال مع yesterday يتطلب فعل تو بي في الماضي (Were you out)." },
+    { q: "19. He usually .................... late for the training sessions when he was a member in the team.", options: ["arrive", "arrives", "used to arriving", "arrived"], answer: 3, rule: "Past Habit in Context", zatona: "وجود جملة (when he was a member) يربط الحدث بالماضي البسيط (arrived)." },
+    { q: "20. I once .................... the newspaper every day. Now I don't have the time.", options: ["have read", "used to read", "had read", "was reading"], answer: 1, rule: "Past Habit (Once)", zatona: "كلمة once تدل على عادة في الماضي انقطعت الآن، فنستخدم (used to read)." },
+    { q: "21. My brother .................... hard and helping his colleagues.", options: ["would work", "didn't use to work", "is used to working", "used to working"], answer: 2, rule: "Be used to + V-ing", zatona: "وجود وراءها تناغم مع المساعد (is used to working) بمعنى معتاد على العمل بجد ومساعدة زملائه الآن." },
+    { q: "22. There .................... enough facilities for local people, but now there are a lot of them.", options: ["didn't use to be", "used to be", "would be", "didn't use to have"], answer: 0, rule: "Negative Used to be", zatona: "التناقض بـ (but now there are) يوضح أن المكان لم يكن يحتوي على مرافق في الماضي (didn't use to be)." },
+    { q: "23. He .................... two houses, but he sold them last year.", options: ["never had", "never used to have", "was used to having", "used to have"], answer: 3, rule: "State Verb Used to", zatona: "فعل الملكية (have) من أفعال الحالة التي تعبر عن امتلاك منزلين في الماضي قبل بيعهم، فنستخدم (used to have)." },
+    { q: "24. They were in the habit .................... out every Friday night.", options: ["to eat", "of eating", "eat", "eating"], answer: 1, rule: "In the habit of + V-ing", zatona: "تعبير ثابت (in the habit of) يأتي بعده الفعل مضافاً إليه ing." },
+    { q: "25. Ziad .................... anybody about his secret that day.", options: ["was telling", "hadn't told", "didn't tell", "wasn't told"], answer: 2, rule: "Past Simple Negative Active", zatona: "الجملة في الماضي البسيط ومعلوم (لم يخبر أحداً في ذلك اليوم)، فنستخدم (didn't tell)." },
+    { q: "26. A: Why didn't you go to the factory? B: I .................... no time.", options: ["had", "have", "hadn't", "didn't have"], answer: 0, rule: "Past Simple (Have as main verb)", zatona: "فعل الملكية (have) في الماضي البسيط يأتي في الإثبات كـ (had) للدلالة على عدم وجود وقت." },
+    { q: "27. I wasn't hungry, so I .................... nothing.", options: ["was eating", "didn't eat", "ate", "haven't eaten"], answer: 2, rule: "Past Simple Affirmative with Negative Meaning", zatona: "كلمة nothing تحمل النفي ضمناً، إذن الفعل بعدها يكون مثبتاً في الماضي (ate nothing = لم أكل شيئاً)." },
+    { q: "28. I used to ride a bike. This means .................... .", options: ["I ride a bike", "I never rode a bike", "I no longer ride a bike", "I didn't ride a bike"], answer: 2, rule: "Meaning of Used to", zatona: "معنى used to أن الفعل كان يحدث في الماضي وانقطع الآن، وتساوي تماماً تعبير (I no longer...)." },
+    { q: "29. Khaled became used .................... up in the early morning.", options: ["get", "to get", "to be get", "to getting"], answer: 3, rule: "Get used to + V-ing", zatona: "تعبير (become/get used to) يأتي بعدها حرف الجر to ثم الفعل مضافاً إليه ing." },
+    { q: "30. Ali .................... to school yesterday.", options: ["go", "goes", "went", "going"], answer: 2, rule: "Past Simple Irregular", zatona: "وجود yesterday يدل على الماضي البسيط، والتصريف الثاني لـ go هو went." },
+    { q: "31. Mona .................... at school yesterday as she was absent.", options: ["didn't see", "doesn't see", "wasn't seen", "isn't seen"], answer: 2, rule: "Past Simple Passive Negative", zatona: "منى لم يُرَها أحد (مبني للمجهول في الماضي المنفي)، إذن (wasn't seen)." },
+    { q: "32. My trousers .................... well by the laundry yesterday.", options: ["had washed", "washed", "was washed", "were washed"], answer: 3, rule: "Plural Passive Past", zatona: "كلمة trousers تعامل معاملة الجمع، والفعل مبني للمجهول في الماضي (were washed)." },
+    { q: "33. My mother .................... a delicious meal yesterday.", options: ["has prepared", "prepared", "prepares", "will prepare"], answer: 1, rule: "Past Simple Action", zatona: "وجود yesterday يحدد الماضي البسيط (prepared)." },
+    { q: "34. Which of the following is structurally correct?", options: ["Are you use to walk to school when you were a student?", "Did you used to walking to school when you were a student ?", "Were you used to walked to school when you were a student?", "Did you use to walk to school when you were a student?"], answer: 3, rule: "Used to Question Structure", zatona: "السؤال الصحيح في الماضي البسيط لـ used to يبدأ بـ Did + الفاعل + use to + المصدر." },
+    { q: "35. I .................... a car which cost me only 100,000 pounds.", options: ["offer", "offered", "was offered", "was offering"], answer: 2, rule: "Past Simple Passive", zatona: "أنا عُرِضت عليَّ سيارة (مبني للمجهول)، إذن (was offered)." },
+    { q: "36. She .................... the money she needed last week.", options: ["wasn't given", "didn't give", "gave", "gives"], answer: 0, rule: "Past Simple Passive Object", zatona: "هي لم تُعطَ المال الذي محتاجته (مبني للمجهول)، إذن (wasn't given)." },
+    { q: "37. Civil engineers get used to .................... outdoors in extreme conditions.", options: ["have worked", "working", "works", "worked"], answer: 1, rule: "Get used to + V-ing", zatona: "قاعدة get used to يتبعها الفعل مضافاً إليه (working)." },
+    { q: "38. I'd rather you .................... now. I'm busy.", options: ["didn't come", "don't come", "doesn't come", "coming"], answer: 0, rule: "Would rather + Past Simple", zatona: "قاعدة I'd rather إذا جاء بعدها فاعل تعبر عن اللحظة الحالية وتأخذ الماضي البسيط (didn't come)." },
+    { q: "39. The Second World War .................... from 1939 to 1945.", options: ["will last", "lasted", "had lasted", "has lasted"], answer: 1, rule: "Completed Past Event", zatona: "حدث تاريخي انتهى تماماً في الماضي المحدد (1939 إلى 1945)، فنستخدم الماضي البسيط (lasted)." },
+    { q: "40. Some archaeologists think that the Pyramids .................... many thousand years ago.", options: ["built", "have built", "were built", "was built"], answer: 2, rule: "Historical Passive", zatona: "الأهرامات بُنيت (مبني للمجهول في الماضي والفاعل جمع)، فنختار (were built)." },
+    { q: "41. The luggage .................... by a porter a week ago.", options: ["was delivered", "were delivered", "delivered", "has delivered"], answer: 0, rule: "Uncountable Noun Passive", zatona: "كلمة luggage تعامل معاملة المفرد غير المعدود، والمبني للمجهول في الماضي يكون (was delivered)." },
+    { q: "42. Heba .................... a call from her friend two days ago.", options: ["receives", "have received", "will receive", "received"], answer: 3, rule: "Past Simple Time Mark", zatona: "وجود (two days ago) يفرض استخدام الماضي البسيط (received)." },
+    { q: "43. She .................... asleep during the movie last night.", options: ["felt", "fell", "falls", "falling"], answer: 1, rule: "Fixed Expression (Fall asleep)", zatona: "تعبير مصحوب بالحركة والانتقال لحالة النوم في الماضي (fell asleep)." },
+    { q: "44. He .................... from secondary school two years ago.", options: ["graduated", "will graduate", "have graduated", "graduates"], answer: 0, rule: "Past Simple Time Reference", zatona: "وجود (two years ago) يدل على الماضي البسيط (graduated)." },
+    { q: "45. I .................... my keys at home this morning, so I couldn't open the door.", options: ["left", "leave", "had left", "was leaving"], answer: 0, rule: "Past Simple Event", zatona: "حدث وقع في صباح اليوم وانتهى في الماضي البسيط (left my keys)." },
+    { q: "46. While I .................... for the bus, I met an old friend.", options: ["wait", "was waiting", "waited", "am waiting"], answer: 1, rule: "Past Continuous Interrupted", zatona: "حدث كان مستمراً في الماضي (was waiting) وقعه حدث فجائي آخر (met)." },
+    { q: "47. What .................... at 8 PM yesterday?", options: ["were you doing", "do you do", "have you done", "are you doing"], answer: 0, rule: "Past Continuous Specific Time", zatona: "سؤال عن حدث كان مستمراً في وقت محدد بالماضي (at 8 PM yesterday)، فنستخدم (were you doing)." },
+    { q: "48. As she .................... the room, the phone rang.", options: ["entered", "was entering", "enters", "is entering"], answer: 1, rule: "Past Continuous as Background", zatona: "رابط As يعبر غالباً عن الاستمرار وقت قطع حدث قصير، فنستخدم (was entering)." },
+    { q: "49. They .................... dinner when the lights went out.", options: ["have had", "were having", "had", "are having"], answer: 1, rule: "Past Continuous Interruption", zatona: "حدث كان مستمراً (were having dinner) وانقطع بانقطاع النور (went out)." }
+];
+</script>
+</body>
+</html>
