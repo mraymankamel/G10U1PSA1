@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- Theme Name: Neon Emerald (Titanium V.Max - Print Master V.MAX) - EXCLUSIVE EDITION -->
+    <!-- Theme Name: Neon Emerald (Titanium V.Max - Print Master V.MAX) - FIXED & FULLY WORKING -->
     <title>🌟 التحدي الأكبر 🚀</title>
 
     <meta property="og:title" content="🌟 التحدي الأكبر 🚀">
@@ -119,23 +119,19 @@
         .option-item.selected .opt-letter { background: var(--accent); color: #FFFFFF; }
         .opt-text { font-family: 'Outfit'; font-weight: 600; font-size: 19px; }
 
-        .action-btns { display: flex; flex-direction: row-reverse; justify-content: space-between; gap: 20px; direction: ltr;}
-        .btn { padding: 20px 30px; border-radius: 16px; font-weight: 900; font-size: 17px; border: 1px solid var(--accent); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Outfit', 'Cairo'; text-transform: uppercase; transition: 0.3s; }
+        .action-btns { display: flex; flex-direction: column; gap: 14px; margin-top: 35px; direction: ltr;}
+        .btn { padding: 20px 30px; border-radius: 16px; font-weight: 900; font-size: 17px; border: 1px solid var(--accent); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Outfit', 'Cairo'; text-transform: uppercase; transition: 0.3s; width: 100%; }
         .btn-outline { background: transparent; color: var(--accent); }
         .btn-outline:hover:not(:disabled) { background: var(--accent); color: #FFFFFF; box-shadow: 0 10px 25px var(--accent-glow);}
-        .btn-prev { min-width: 140px; border-color: #E2E8F0; color: var(--text-muted);}
+        .btn-prev { border-color: #E2E8F0; color: var(--text-muted);}
         .btn-prev:hover:not(:disabled) { border-color: var(--text-main); color: var(--text-main); background:#F8FAFC;}
         .btn-prev:disabled { opacity: 0.3; cursor: not-allowed;}
-        .btn-solid { background: linear-gradient(135deg, var(--accent), #047857); color: #FFFFFF; box-shadow: 0 10px 30px var(--accent-glow); flex: 1; font-size:19px;}
+        .btn-solid { background: linear-gradient(135deg, var(--accent), #047857); color: #FFFFFF; box-shadow: 0 10px 30px var(--accent-glow); font-size:19px;}
         .btn-solid:hover { transform: translateY(-3px); box-shadow: 0 15px 35px var(--accent-glow);}
 
         .score-card { background: #FFFFFF; border-radius: 24px; padding: 50px 25px; text-align: center; margin-bottom: 40px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 50px rgba(0,0,0,0.03);}
         .score-circle { width: 240px; height: 240px; border-radius: 50%; margin: 0 auto 35px; display: flex; align-items: center; justify-content: center; font-family: 'Outfit'; font-size: 65px; font-weight: 900; color: #FFFFFF; background: linear-gradient(135deg, var(--accent), #34D399); border: 12px solid #FFFFFF; box-shadow: 0 15px 40px var(--accent-glow), 0 0 0 5px var(--accent); direction: ltr;}
         
-        .exam-title-display { font-family: 'Outfit', 'Cairo'; font-size: 26px; font-weight: 900; color: var(--text-main); margin-bottom: 15px; direction: ltr; display: inline-flex; align-items: center; justify-content: center; gap: 10px;}
-        .edit-icon { cursor: pointer; font-size: 22px; transition: 0.3s; opacity: 0.7;}
-        .edit-icon:hover { opacity: 1; transform: scale(1.1);}
-
         #student-display-name { font-size: 24px; font-weight: 900; color: var(--text-muted); margin-bottom: 25px; display: flex; align-items: center; justify-content: center; gap: 10px;}
         .result-avatar { font-size: 28px; background: #FFFFFF; border: 2px solid var(--accent); border-radius: 50%; width: 50px; height: 50px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;}
         
@@ -143,9 +139,8 @@
         .badge-award { display: inline-block; background: linear-gradient(135deg, var(--accent), #047857); color: #FFFFFF; padding: 24px 40px; font-weight: 900; font-size: 24px; min-width: 320px; min-height: 85px; font-family: 'Outfit', 'Cairo'; }
         #scratch-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: crosshair; z-index: 5; }
 
-        .result-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 50px;}
+        .result-actions { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 50px;}
         .result-actions .btn { width: 100%; font-size: 15px; padding: 18px; border-radius: 14px;}
-        .btn-full { grid-column: span 2; }
         .btn-whatsapp { background: #25D366; color: #fff; border-color: #25D366; }
 
         .review-item { background: #FFFFFF; border-radius: 16px; padding: 30px; margin-bottom: 25px; text-align: left; direction: ltr; border: 1px solid #E2E8F0; box-shadow: 0 5px 20px rgba(0,0,0,0.02); page-break-inside: avoid;}
@@ -413,9 +408,9 @@
                 <div class="avatar-option" onclick="selectAvatar(this, '🏆')">🏆</div>
             </div>
             <div class="input-group">
-                <input type="text" id="studentName" placeholder="أدخل اسمك الثلاثي لتبدأ..." autocomplete="off" onkeypress="if(event.key === 'Enter') startQuiz()">
+                <input type="text" id="studentName" placeholder="أدخل اسمك الثلاثي لتبدأ..." autocomplete="off">
             </div>
-            <button type="button" class="btn btn-solid" style="width:100%" onclick="startQuiz()">START ASSESSMENT ➔</button>
+            <button type="button" class="btn btn-solid" id="start-btn-action">START ASSESSMENT ➔</button>
         </div>
 
         <div id="quiz-screen">
@@ -436,8 +431,8 @@
                 <div class="options-list" id="options-list" style="direction: ltr;"></div>
             </div>
             <div class="action-btns">
-                <button type="button" class="btn btn-solid" id="submit-btn" onclick="calculateScore()" style="display: none;">🚀 SUBMIT</button>
                 <button type="button" class="btn btn-solid" id="next-btn" onclick="nextQuestion()">NEXT ➔</button>
+                <button type="button" class="btn btn-solid" id="submit-btn" onclick="calculateScore()" style="display: none;">🚀 SUBMIT</button>
                 <button type="button" class="btn btn-prev" id="prev-btn" onclick="prevQuestion()" disabled>⬅ PREV</button>
             </div>
         </div>
@@ -574,7 +569,7 @@ const cheers = [
     {en: "Stay sharp!", ar: "أوعى تسرح، عينك في وسط راسك!"},
     {en: "Legendary progress!", ar: "أداء أساطير، مفيش كلام!"},
     {en: "Nothing can break your focus!", ar: "ولا ألف سؤال يقدروا يوقعوك!"},
-    {en: "The top rank is calling!", ar: "القمة بتناديك، متتنازلش عنها!"}
+    {en: "The top rank is calling!", ar: "القمة بتناديك، متتنازلش عنها رياضياً!"}
 ];
 let lastCheerIndex = -1; 
 function triggerTeacherCheer() {
@@ -586,7 +581,16 @@ function triggerTeacherCheer() {
     wrapper.classList.add("show"); setTimeout(() => { wrapper.classList.remove("show"); }, 3500);
 }
 
-function triggerEasterEgg() { alert("💎 Neon Emerald Theme (Titanium V.Max) Active! 💎"); }
+let easterEggCount = 0;
+function triggerEasterEgg() { 
+    easterEggCount++;
+    if(easterEggCount >= 5) {
+        easterEggCount = 0;
+        try { soundBossWin(); } catch(e){}
+        alert("💎 Neon Emerald Theme (Titanium V.Max) Active! 💎"); 
+    }
+}
+
 function changeFontSize(change) {
     const root = document.documentElement;
     let currentSize = parseInt(getComputedStyle(root).getPropertyValue('--q-font-size')) || 22;
@@ -646,6 +650,530 @@ const rawData = [
     { q: "48. As she .................... the room, the phone rang.", options: ["entered", "was entering", "enters", "is entering"], answer: 1, rule: "Past Continuous as Background", zatona: "رابط As يعبر غالباً عن الاستمرار وقت قطع حدث قصير، فنستخدم (was entering)." },
     { q: "49. They .................... dinner when the lights went out.", options: ["have had", "were having", "had", "are having"], answer: 1, rule: "Past Continuous Interruption", zatona: "حدث كان مستمراً (were having dinner) وانقطع بانقطاع النور (went out)." }
 ];
+
+let typeInterval = null;
+let timeAttackLevel = 0;
+let isTimeAttack = false;
+
+function setTimeAttack(level, el) {
+    timeAttackLevel = level;
+    isTimeAttack = (level > 0);
+    document.querySelectorAll('.ta-btn').forEach(btn => btn.classList.remove('active'));
+    el.classList.add('active');
+}
+
+let quizData = [];
+let currentQuestion = 0, userAnswers = {}, studentName = "", selectedAvatar = '💎';
+let totalSeconds = 60 * 240, qTimeLeft = 15, timerInterval = null;
+let isSubmitting = false; 
+let pauseCount = 0, isPaused = false; 
+let cheatWarningsCount = 0;
+
+document.addEventListener("visibilitychange", () => {
+    const quizScreen = document.getElementById("quiz-screen");
+    if (document.hidden && quizScreen && quizScreen.style.display === "block" && !isSubmitting) {
+        cheatWarningsCount++;
+        if (cheatWarningsCount > 3) {
+            alert("🚨 SYSTEM OVERRIDE: تم سحب الورقة لعدم الالتزام ببروتوكول التركيز.");
+            calculateScore(); 
+        } else {
+            const msgEl = document.getElementById('cheat-msg');
+            if(msgEl) msgEl.innerText = `تم رصد خروجك من النظام.\nالتحذير (${cheatWarningsCount} من 3).\nفي المرة الرابعة سيتم سحب الورقة إجبارياً.`;
+            const modalEl = document.getElementById('cheat-modal');
+            if(modalEl) modalEl.style.display = 'flex';
+            soundWrongTime();
+        }
+    }
+});
+
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', e => { if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || (e.ctrlKey && e.key === 'U') || (e.ctrlKey && (e.key === 'c' || e.key === 'v' || e.key === 'x'))) e.preventDefault(); });
+document.addEventListener('copy', e => e.preventDefault()); 
+document.addEventListener('paste', e => e.preventDefault()); 
+document.addEventListener('cut', e => e.preventDefault());
+
+function shuffleArray(array) { 
+    for (let i = array.length - 1; i > 0; i--) { 
+        const j = Math.floor(Math.random() * (i + 1)); 
+        [array[i], array[j]] = [array[j], array[i]]; 
+    } 
+}
+
+function initQuizData() {
+    let tempArray = JSON.parse(JSON.stringify(rawData));
+    shuffleArray(tempArray); 
+    quizData = tempArray.map((item, index) => {
+        let correctText = item.options[item.answer];
+        shuffleArray(item.options); 
+        
+        let customExp = `<div class='exp-en'>💡 <b>Explanation:</b> ${item.rule}</div>`;
+        if(item.zatona) {
+            customExp += `<div class='exp-separator'></div><div class='exp-ar'>✨ <b>الزتونة:</b> ${item.zatona}</div>`;
+        }
+
+        return { 
+            rule: item.rule || "Grammar Rule", 
+            originalQ: item.q, 
+            q: `${index + 1}. ` + item.q.replace(/^\d+\.\s*/, ''), 
+            options: item.options, 
+            answer: item.options.indexOf(correctText), 
+            exp: customExp,
+            zatona: item.zatona || item.rule
+        };
+    });
+}
+
+function updateChromaShift() {
+    let levelIndex = Math.floor(currentQuestion / 10); 
+    if(levelIndex > 4) levelIndex = 4;
+    document.body.className = `theme-${levelIndex + 1}`;
+}
+
+function selectAvatar(el, avatar) { 
+    document.querySelectorAll('.avatar-option').forEach(o => o.classList.remove('selected')); 
+    el.classList.add('selected'); 
+    selectedAvatar = avatar; 
+}
+
+function toggleTimerView() { 
+    const timerText = document.getElementById("timer-text");
+    if(timerText) timerText.classList.toggle("hidden-timer"); 
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const startBtn = document.getElementById('start-btn-action');
+    if(startBtn) {
+        startBtn.onclick = startQuiz;
+    }
+});
+
+function startQuiz() {
+    const nameInput = document.getElementById("studentName");
+    const input = nameInput ? nameInput.value.trim() : "";
+    if (!input) { 
+        alert("أدخل اسمك لتبدأ التحدي!"); 
+        if(nameInput) nameInput.focus();
+        return; 
+    }
+    studentName = input; 
+    
+    initQuizData(); 
+    
+    const startBody = document.getElementById("start-body");
+    const quizScreen = document.getElementById("quiz-screen");
+    const timerContainer = document.getElementById("timer-container");
+    const eyeContainer = document.getElementById("eye-care-container");
+
+    if(startBody) startBody.style.display = "none";
+    if(quizScreen) quizScreen.style.display = "block";
+    if(timerContainer) timerContainer.style.display = "flex";
+    if(eyeContainer) eyeContainer.style.display = "flex";
+    
+    const hudAvatar = document.getElementById("hud-avatar");
+    const hudName = document.getElementById("hud-name");
+    const hudMovingAvatar = document.getElementById("hud-moving-avatar");
+    const printDocStudent = document.getElementById("print-doc-student");
+    const resAvatar = document.getElementById("res-avatar");
+
+    if(hudAvatar) hudAvatar.innerText = selectedAvatar;
+    if(hudName) hudName.innerText = studentName;
+    if(hudMovingAvatar) hudMovingAvatar.innerText = selectedAvatar;
+    if(printDocStudent) printDocStudent.innerText = studentName;
+    if(resAvatar) resAvatar.innerText = selectedAvatar;
+
+    totalSeconds = quizData.length * 240; 
+    if (!isTimeAttack) {
+        let m = Math.floor(totalSeconds / 60), s = totalSeconds % 60;
+        const timerText = document.getElementById("timer-text");
+        if(timerText) timerText.innerText = `${m < 100 ? (m < 10 ? '0'+m : m) : m}:${s < 10 ? '0'+s : s}`;
+    }
+
+    startTimer(); 
+    loadQuestion();
+}
+
+function loadQuestion() {
+    if (typeInterval) clearInterval(typeInterval);
+    updateChromaShift();
+    
+    if(isTimeAttack) { 
+        qTimeLeft = timeAttackLevel; 
+        const timerBox = document.getElementById("timer-box");
+        const timerText = document.getElementById("timer-text");
+        if(timerBox) timerBox.classList.remove("danger"); 
+        if(timerText) timerText.innerText = `00:${qTimeLeft < 10 ? '0' + qTimeLeft : qTimeLeft}`; 
+    }
+
+    const item = quizData[currentQuestion];
+    const optionsList = document.getElementById("options-list");
+    
+    if(optionsList) {
+        optionsList.innerHTML = "";
+        item.options.forEach((opt, oIndex) => {
+            const div = document.createElement("div"); 
+            div.className = "option-item";
+            if (userAnswers[currentQuestion] === oIndex) div.classList.add("selected");
+            const letter = String.fromCharCode(65 + oIndex);
+            div.innerHTML = `<div class="opt-letter">${letter}</div> <div class="opt-text" style="direction: ltr;">${opt}</div>`;
+            div.onclick = () => selectOption(oIndex);
+            optionsList.appendChild(div);
+        });
+    }
+
+    const qTextContent = document.getElementById("question-text-content");
+    if(qTextContent) qTextContent.innerText = item.q;
+
+    const progCount = document.getElementById("progress-count");
+    if(progCount) progCount.innerText = `Q: ${currentQuestion + 1} / ${quizData.length}`;
+    
+    let percentProgress = Math.round(((currentQuestion + 1) / quizData.length) * 100);
+    const energyBar = document.getElementById("energy-bar");
+    if(energyBar) energyBar.style.width = `${percentProgress}%`;
+
+    const prevBtn = document.getElementById("prev-btn");
+    if(prevBtn) {
+        prevBtn.disabled = currentQuestion === 0;
+        if(isTimeAttack) prevBtn.style.display = "none";
+    }
+
+    const nextBtn = document.getElementById("next-btn");
+    const submitBtn = document.getElementById("submit-btn");
+    if(nextBtn) nextBtn.style.display = (currentQuestion === quizData.length - 1) ? "none" : "inline-flex";
+    if(submitBtn) submitBtn.style.display = (currentQuestion === quizData.length - 1) ? "inline-flex" : "none";
+}
+
+function selectOption(oIndex) { 
+    userAnswers[currentQuestion] = oIndex; 
+    const optionsList = document.getElementById("options-list"); 
+    if(optionsList) {
+        Array.from(optionsList.children).forEach((child, i) => { 
+            if(i === oIndex) child.classList.add("selected"); 
+            else child.classList.remove("selected"); 
+        }); 
+    }
+}
+
+function nextQuestion(force = false) {
+    if (!force && userAnswers[currentQuestion] === undefined) { 
+        alert("لازم تختار إجابة الأول عشان تكمل!"); 
+        return; 
+    }
+    if (currentQuestion < quizData.length - 1) { 
+        currentQuestion++; 
+        if (currentQuestion % 5 === 0 && currentQuestion !== 0) triggerTeacherCheer(); 
+        loadQuestion(); 
+        if (isTimeAttack) startTimer(); 
+    }
+}
+
+function prevQuestion() { 
+    if (currentQuestion > 0) { 
+        currentQuestion--; 
+        loadQuestion(); 
+        if (isTimeAttack) startTimer(); 
+    } 
+}
+
+function togglePause() {
+    const pauseModal = document.getElementById('pause-modal');
+    if (isPaused) { 
+        isPaused = false; 
+        if(pauseModal) pauseModal.style.display = 'none'; 
+        startTimer(); 
+    } else {
+        if (pauseCount >= 3) { 
+            alert("استنفدت كل محاولات الإيقاف (3/3)!"); 
+            return; 
+        }
+        isPaused = true; 
+        pauseCount++; 
+        if(timerInterval) clearInterval(timerInterval);
+        
+        const pauseMsg = document.getElementById('pause-count-msg');
+        if(pauseMsg) pauseMsg.innerText = `استخدمت (${pauseCount} من 3) محاولات الإيقاف.`;
+        if(pauseModal) pauseModal.style.display = 'flex';
+    }
+}
+
+function startTimer() {
+    if (timerInterval) clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        if (isPaused) return;
+        if(isTimeAttack) {
+            qTimeLeft--;
+            const timerText = document.getElementById("timer-text");
+            const timerBox = document.getElementById("timer-box");
+            if(timerText) timerText.innerText = `00:${qTimeLeft < 10 ? '0' + qTimeLeft : qTimeLeft}`;
+            if (qTimeLeft <= 5) {
+                if(timerBox) timerBox.classList.add("danger");
+                const appContainer = document.getElementById("app-container");
+                if(appContainer) {
+                    appContainer.classList.add("shake-active");
+                    setTimeout(()=> appContainer.classList.remove("shake-active"), 400);
+                }
+            } else { 
+                if(timerBox) timerBox.classList.remove("danger"); 
+            }
+            if (qTimeLeft <= 0) { 
+                if(userAnswers[currentQuestion] === undefined) { userAnswers[currentQuestion] = -1; } 
+                if(currentQuestion < quizData.length - 1) { nextQuestion(true); } 
+                else { calculateScore(); } 
+            }
+        } else {
+            totalSeconds--;
+            let m = Math.floor(totalSeconds / 60), s = totalSeconds % 60;
+            const timerText = document.getElementById("timer-text");
+            const timerBox = document.getElementById("timer-box");
+            if(timerText) timerText.innerText = `${m < 100 ? (m < 10 ? '0'+m : m) : m}:${s < 10 ? '0'+s : s}`;
+            if (totalSeconds <= 300) { 
+                if(timerBox) timerBox.classList.add("danger"); 
+                if(totalSeconds % 2 === 0 && timerBox) { 
+                    timerBox.classList.add("shake-active"); 
+                    setTimeout(()=> timerBox.classList.remove("shake-active"), 400); 
+                } 
+            } else { 
+                if(timerBox) timerBox.classList.remove("danger"); 
+            }
+            if (totalSeconds <= 0) { 
+                if(timerInterval) clearInterval(timerInterval); 
+                calculateScore(); 
+            }
+        }
+    }, 1000);
+}
+
+function calculateScore() {
+    if(isSubmitting) return; 
+    isSubmitting = true;
+    try {
+        if (timerInterval) clearInterval(timerInterval);
+        
+        const startBody = document.getElementById("start-body");
+        const timerContainer = document.getElementById("timer-container");
+        const eyeContainer = document.getElementById("eye-care-container");
+        const resultScreen = document.getElementById("result-screen");
+
+        if(startBody) startBody.style.display = "none";
+        if(timerContainer) timerContainer.style.display = "none";
+        if(eyeContainer) eyeContainer.style.display = "none";
+        if(resultScreen) resultScreen.style.display = "block";
+        window.scroll({ top: 0, left: 0 });
+
+        let score = 0; 
+        const reviewList = document.getElementById("review-list"); 
+        if(reviewList) reviewList.innerHTML = "";
+        
+        let printQList = document.getElementById("print-q-list"); 
+        if(printQList) printQList.innerHTML = "";
+        
+        let omrGrid = document.getElementById("omr-grid"); 
+        if(omrGrid) omrGrid.innerHTML = "";
+
+        let wrongAnswersHTML = ""; 
+        let ruleMistakes = {};
+
+        quizData.forEach((item, index) => {
+            const isCorrect = userAnswers[index] === item.answer;
+            if (isCorrect) { score++; } 
+            else { ruleMistakes[item.rule] = (ruleMistakes[item.rule] || 0) + 1; }
+            
+            let userOptText = "لم يتم الحل ❌"; 
+            let emailUserOptText = "Not answered ❌";
+            if (userAnswers[index] !== undefined && userAnswers[index] !== -1) { 
+                userOptText = item.options[userAnswers[index]]; 
+                emailUserOptText = item.options[userAnswers[index]]; 
+            }
+            const correctOpt = item.options[item.answer];
+
+            if (!isCorrect) {
+                let emailExplanation = item.exp.replace(/class='exp-en'/g, "style='direction: ltr; text-align: left; color: #555; font-size: 14px; margin-bottom: 8px;'").replace(/class='exp-separator'/g, "style='width: 100%; height: 1px; border-bottom: 1px dashed #ccc; margin: 8px 0;'").replace(/class='exp-ar'/g, "style='direction: rtl; text-align: right; color: #000080; font-family: Tahoma, Arial, sans-serif; font-size: 14px; font-weight: bold; margin-top: 8px;'");
+                wrongAnswersHTML += `<div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 2px solid #e2e8f0;"><div style="direction: ltr; text-align: left; font-weight: bold; color: #000080; margin-bottom: 8px; font-size: 16px;">Q: ${item.originalQ}</div><div style="direction: ltr; text-align: left; color: #E11D48; font-size: 15px; margin-bottom: 4px;">❌ <b>Student's Answer:</b> ${emailUserOptText}</div><div style="direction: ltr; text-align: left; color: #059669; font-size: 15px; margin-bottom: 10px;">✅ <b>Correct Answer:</b> ${correctOpt}</div><div style="background: rgba(0,0,0,0.04); padding: 12px; border-radius: 6px; border-left: 4px solid #059669;">${emailExplanation}</div><div style="margin-top: 8px; color: #666; font-size: 13px; direction: rtl;">📌 القاعدة المفقودة: ${item.rule}</div></div>`;
+            }
+
+            /* Print Master Engine Data Injection */
+            let printOptionsHTML = '<div class="print-options-grid">';
+            item.options.forEach((opt, idx) => {
+                let isCorrectOptClass = (idx === item.answer) ? 'is-correct-opt' : '';
+                printOptionsHTML += `<div class="print-opt-item ${isCorrectOptClass}"><div class="print-opt-letter">${String.fromCharCode(65 + idx)}</div><span class="print-opt-text">${opt}</span></div>`;
+            });
+            printOptionsHTML += '</div>';
+
+            let printItemHTML = `
+                <div class="print-q-item ${isCorrect ? 'ans-correct' : 'ans-wrong'}">
+                    <div class="print-q-text">${item.q}</div>
+                    ${printOptionsHTML}
+                    <div class="print-rule-box">💡 الزتونة: ${item.zatona}</div>
+                </div>
+            `;
+            if(printQList) printQList.innerHTML += printItemHTML;
+
+            let omrRowHTML = `<div class="omr-row"><div class="omr-q-num">${index + 1}.</div><div class="omr-bubbles">`;
+            for(let b=0; b<4; b++){
+                let isCorrectBubble = (b === item.answer) ? 'is-correct-bubble' : '';
+                omrRowHTML += `<div class="omr-bubble ${isCorrectBubble}">${String.fromCharCode(65 + b)}</div>`;
+            }
+            omrRowHTML += `</div></div>`;
+            if(omrGrid) omrGrid.innerHTML += omrRowHTML;
+
+            const div = document.createElement("div");
+            div.className = `review-item ${isCorrect ? 'is-correct' : 'is-wrong'}`;
+            div.innerHTML = `<div style="font-weight:800;font-size:16px;margin-bottom:8px; direction: ltr; color: var(--text-main);">${item.q}</div>
+                <div class="ui-ans-box">
+                    <div class="student-ans" style="direction: rtl; color: var(--text-muted);">إجابتك: <b style="color:${isCorrect?'var(--success-color)':'var(--error-color)'}; direction: ltr; display: inline-block;">${userOptText}</b></div>
+                    ${!isCorrect ? `<div class="correct-ans" style="color:var(--success-color);font-weight:800;margin-top:4px; direction: rtl;">الإجابة الصحيحة: <span style="direction: ltr; display: inline-block;">${correctOpt}</span></div>` : ''}
+                </div>
+                <div class="explanation-box">${item.exp}</div>`;
+            if(reviewList) reviewList.appendChild(div);
+        });
+
+        const percent = Math.round((score / quizData.length) * 100);
+        window.finalScore = score; 
+        window.finalPercent = percent;
+
+        let weakestRule = "لا يوجد أخطاء 🏆"; 
+        let maxMistakes = 0;
+        for (let r in ruleMistakes) { 
+            if (ruleMistakes[r] > maxMistakes) { 
+                maxMistakes = ruleMistakes[r]; 
+                weakestRule = r; 
+            } 
+        }
+        if(wrongAnswersHTML === "") wrongAnswersHTML = "الطالب قفل التقييم بامتياز! مفيش ولا غلطة 🏆";
+
+        document.body.className = "theme-1"; 
+        
+        const resName = document.getElementById("res-name");
+        const printScoreOut = document.getElementById("print-score-out");
+        const scorePercentage = document.getElementById("score-percentage");
+        const scorePercentText = document.getElementById("score-percent-text");
+        const scoreDetails = document.getElementById("score-details");
+        const badgeAwardBox = document.getElementById("badge-award-box");
+        const certBtn = document.getElementById("cert-btn");
+
+        if(resName) resName.innerText = studentName;
+        if(printScoreOut) printScoreOut.innerText = `${score} / ${quizData.length}`;
+        if(scorePercentage) scorePercentage.innerText = `${score} / ${quizData.length}`;
+        if(scorePercentText) scorePercentText.innerText = `Accuracy: ${percent}%`;
+        
+        let modTxt = isTimeAttack ? " (Time Attack 🔥)" : "";
+        if(scoreDetails) scoreDetails.innerText = `تم إنهاء التقييم بنجاح! ${modTxt}`;
+
+        let badge = percent >= 90 ? "👑 النخبة (Elite)" : percent >= 75 ? "🔥 أداء متميز (Pro)" : "🌱 محاولة مبشرة (Challenger)";
+        if(badgeAwardBox) badgeAwardBox.innerText = badge;
+        
+        if (percent >= 80 && certBtn) certBtn.style.display = "inline-flex";
+
+        setTimeout(() => {
+            try { soundBossWin(); } catch(e){}
+            try { initScratchCard(); } catch(e){}
+            try { 
+                let confColor = getComputedStyle(document.body).getPropertyValue('--accent').trim() || '#059669'; 
+                if (percent >= 80 && typeof confetti === 'function') {
+                    confetti({ particleCount: 300, spread: 150, origin: { y: 0.6 }, colors: ['#F8FAFC', confColor, '#0F172A'] }); 
+                }
+            } catch(e){}
+            try {
+                let usedTime = isTimeAttack ? "Time Attack" : ( (quizData.length * 240) - totalSeconds) + "s";
+                let payload = new URLSearchParams({ 
+                    examName: "Unit 1 Ultimate Assessment", 
+                    studentName: studentName, 
+                    score: `${score} / ${quizData.length}`, 
+                    percentage: percent, 
+                    date: new Date().toLocaleString('en-GB'), 
+                    timeSpent: usedTime, 
+                    wrongAnswers: wrongAnswersHTML, 
+                    cheatWarnings: cheatWarningsCount, 
+                    weakestRule: weakestRule 
+                });
+                fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: payload }).catch(err => console.log("Script sync error:", err));
+            } catch(e){}
+        }, 100);
+
+    } catch(e) { 
+        console.error("Error:", e); 
+        alert("حدث خطأ تقني أثناء معالجة النتيجة."); 
+    }
+}
+
+function shareToParentWhatsApp() { 
+    let txt = `👨‍👩‍👧 تقرير أداء - التحدي الأكبر\n👤 الطالب: ${studentName}\n📊 النسبة: ${window.finalPercent}%\n✨ تحت إشراف مستر أيمن كامل.`; 
+    window.open(`https://wa.me/?text=${encodeURIComponent(txt)}`, '_blank'); 
+}
+function shareToTeacherWhatsApp() { 
+    let txt = `👨‍🏫 تقرير تسليم - التحدي الأكبر\n👤 الطالب: ${studentName}\n🎯 الدرجة: ${window.finalScore} / ${quizData.length}\n📊 النسبة: ${window.finalPercent}%`; 
+    window.open(`https://wa.me/201284749899?text=${encodeURIComponent(txt)}`, '_blank'); 
+}
+
+function downloadCertificate() {
+    const canvas = document.createElement('canvas'); 
+    canvas.width = 1000; 
+    canvas.height = 700; 
+    const ctx = canvas.getContext('2d');
+    let accent = getComputedStyle(document.body).getPropertyValue('--accent').trim() || '#059669';
+    
+    ctx.fillStyle = '#F8FAFC'; 
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.save(); 
+    ctx.translate(canvas.width / 2, canvas.height / 2); 
+    ctx.rotate(-Math.PI / 6); 
+    ctx.globalAlpha = 0.04; 
+    ctx.font = "bold 110px 'Outfit'"; 
+    ctx.fillStyle = accent; 
+    ctx.textAlign = "center"; 
+    ctx.textBaseline = "middle"; 
+    ctx.fillText("MR. AYMAN KAMEL", 0, -60); 
+    ctx.fillText("ELITE CHAMPION", 0, 70); 
+    ctx.restore();
+    
+    ctx.strokeStyle = accent; 
+    ctx.lineWidth = 10; 
+    ctx.strokeRect(30, 30, canvas.width - 60, canvas.height - 60); 
+    ctx.globalAlpha = 0.2; 
+    ctx.lineWidth = 3; 
+    ctx.strokeRect(42, 42, canvas.width - 84, canvas.height - 84); 
+    ctx.globalAlpha = 1.0;
+    
+    ctx.textAlign = "center"; 
+    ctx.fillStyle = accent; 
+    ctx.font = "bold 45px 'Outfit'"; 
+    ctx.fillText("✨ Certificate of Ultimate Mastery ✨", canvas.width / 2, 120);
+    
+    ctx.fillStyle = "#64748B"; 
+    ctx.font = "30px 'Outfit'"; 
+    ctx.fillText("This prestigious document is awarded to the elite student:", canvas.width / 2, 220);
+    
+    ctx.fillStyle = "#0F172A"; 
+    ctx.font = "bold 65px 'Cairo'"; 
+    ctx.fillText(studentName, canvas.width / 2, 320);
+    
+    ctx.fillStyle = "#64748B"; 
+    ctx.font = "25px 'Outfit'"; 
+    ctx.fillText(`For successfully decoding Unit 1 Assessment with an accuracy of`, canvas.width / 2, 420);
+    
+    ctx.fillStyle = "#059669"; 
+    ctx.font = "bold 55px 'Outfit'"; 
+    ctx.fillText(`${window.finalScore} / ${quizData.length}  (${window.finalPercent}%)`, canvas.width / 2, 500);
+    
+    ctx.fillStyle = accent; 
+    ctx.font = "22px 'Outfit'"; 
+    ctx.fillText("System Architect: Mr. Ayman Kamel", canvas.width / 2, 600);
+    
+    let d = new Date(); 
+    ctx.font = "18px 'Outfit'"; 
+    ctx.fillText("Issue Date: " + d.toLocaleDateString('en-GB'), canvas.width / 2, 640);
+    
+    ctx.globalAlpha = 0.6; 
+    ctx.textAlign = "left"; 
+    ctx.font = "16px 'Outfit'"; 
+    ctx.fillText("ID: U1-" + d.getFullYear() + "-" + Math.floor(Math.random()*90000+10000), 55, 655); 
+    ctx.globalAlpha = 1.0;
+    
+    const link = document.createElement('a'); 
+    link.download = `Unit1_Mastery_${studentName}.png`; 
+    link.href = canvas.toDataURL('image/png'); 
+    link.click();
+}
 </script>
 </body>
 </html>
