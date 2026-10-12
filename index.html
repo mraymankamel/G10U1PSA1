@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- Theme Name: Neon Emerald (Titanium V.Max - Print Master V.MAX) - FIXED & FULLY WORKING -->
+    <!-- Theme Name: Neon Emerald (Titanium V.Max - Print Master V.MAX) - FULLY AUDITED & REPAIRED -->
     <title>🌟 التحدي الأكبر 🚀</title>
 
     <meta property="og:title" content="🌟 التحدي الأكبر 🚀">
@@ -488,16 +488,23 @@ function tryVibrate(pattern) { if (navigator.vibrate) try { navigator.vibrate(pa
 
 /* 🎛️ Teacher Control Panel Functions */
 function updatePrintVars() {
-    document.getElementById("print-title-out").innerText = document.getElementById("cp-title-in").value;
-    document.getElementById("print-score-out").innerText = document.getElementById("cp-score-in").value;
+    const titleIn = document.getElementById("cp-title-in");
+    const scoreIn = document.getElementById("cp-score-in");
+    const titleOut = document.getElementById("print-title-out");
+    const scoreOut = document.getElementById("print-score-out");
+
+    if(titleIn && titleOut) titleOut.innerText = titleIn.value;
+    if(scoreIn && scoreOut) scoreOut.innerText = scoreIn.value;
 }
 function toggleTeacherMode() {
     document.body.classList.toggle("teacher-mode-active");
-    document.getElementById("btn-t-mode").classList.toggle("active");
+    const btn = document.getElementById("btn-t-mode");
+    if(btn) btn.classList.toggle("active");
 }
 function toggleOMR() {
     document.body.classList.toggle("omr-active");
-    document.getElementById("btn-omr-mode").classList.toggle("active");
+    const btn = document.getElementById("btn-omr-mode");
+    if(btn) btn.classList.toggle("active");
 }
 
 /* 🖨️ Print Master Engine Modes */
@@ -533,6 +540,7 @@ function speakQuestion() {
 function initScratchCard() {
     const container = document.getElementById("badge-award-box");
     const canvas = document.getElementById("scratch-canvas");
+    if(!container || !canvas) return;
     const ctx = canvas.getContext("2d");
     canvas.width = container.offsetWidth; canvas.height = container.offsetHeight;
     let currentAccent = getComputedStyle(document.body).getPropertyValue('--accent').trim() || '#059669';
@@ -569,15 +577,18 @@ const cheers = [
     {en: "Stay sharp!", ar: "أوعى تسرح، عينك في وسط راسك!"},
     {en: "Legendary progress!", ar: "أداء أساطير، مفيش كلام!"},
     {en: "Nothing can break your focus!", ar: "ولا ألف سؤال يقدروا يوقعوك!"},
-    {en: "The top rank is calling!", ar: "القمة بتناديك، متتنازلش عنها رياضياً!"}
+    {en: "The top rank is calling!", ar: "القمة بتناديك، متتنازلش عنها نهائياً!"}
 ];
 let lastCheerIndex = -1; 
 function triggerTeacherCheer() {
     const wrapper = document.getElementById("cheer-wrapper");
+    if(!wrapper) return;
     let randomIndex; do { randomIndex = Math.floor(Math.random() * cheers.length); } while (randomIndex === lastCheerIndex); 
     lastCheerIndex = randomIndex;
-    document.getElementById("cheer-en").innerText = cheers[randomIndex].en;
-    document.getElementById("cheer-ar").innerText = cheers[randomIndex].ar;
+    const enEl = document.getElementById("cheer-en");
+    const arEl = document.getElementById("cheer-ar");
+    if(enEl) enEl.innerText = cheers[randomIndex].en;
+    if(arEl) arEl.innerText = cheers[randomIndex].ar;
     wrapper.classList.add("show"); setTimeout(() => { wrapper.classList.remove("show"); }, 3500);
 }
 
@@ -659,7 +670,7 @@ function setTimeAttack(level, el) {
     timeAttackLevel = level;
     isTimeAttack = (level > 0);
     document.querySelectorAll('.ta-btn').forEach(btn => btn.classList.remove('active'));
-    el.classList.add('active');
+    if(el) el.classList.add('active');
 }
 
 let quizData = [];
@@ -731,7 +742,7 @@ function updateChromaShift() {
 
 function selectAvatar(el, avatar) { 
     document.querySelectorAll('.avatar-option').forEach(o => o.classList.remove('selected')); 
-    el.classList.add('selected'); 
+    if(el) el.classList.add('selected'); 
     selectedAvatar = avatar; 
 }
 
@@ -740,10 +751,17 @@ function toggleTimerView() {
     if(timerText) timerText.classList.toggle("hidden-timer"); 
 }
 
+// ربط زر البداية بطريقة تضمن عدم فشل الحدث بأي شكل
 window.addEventListener('DOMContentLoaded', () => {
     const startBtn = document.getElementById('start-btn-action');
     if(startBtn) {
-        startBtn.onclick = startQuiz;
+        startBtn.addEventListener('click', startQuiz);
+    }
+    const nameInput = document.getElementById('studentName');
+    if(nameInput) {
+        nameInput.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') startQuiz();
+        });
     }
 });
 
@@ -751,7 +769,7 @@ function startQuiz() {
     const nameInput = document.getElementById("studentName");
     const input = nameInput ? nameInput.value.trim() : "";
     if (!input) { 
-        alert("أدخل اسمك لتبدأ التحدي!"); 
+        alert("أدخل اسمك الثلاثي لتبدأ التحدي!"); 
         if(nameInput) nameInput.focus();
         return; 
     }
